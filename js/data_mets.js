@@ -57,14 +57,12 @@ alias.forEach(function(elemento,index){
 		for(let i = 0; i < tarifaNormal.length; i++){
 			if(elemento == tarifaNormal[i]){
 				tarifa.push("Normal");
-				console.log("Tarifa normal");
 				zbe = false;
 			}
 		}
 	}
 	if(zbe){
 		tarifa.push("ZBE");
-		console.log("Tarifa ZBE");
 	}
 
 	//Añadimos los elementos de "alias" al set.
@@ -197,7 +195,7 @@ dataAlias.push({
 
 }
 
-console.log(dataAlias[0]);
+// console.log(dataAlias[0]);
 
 
 // function obtenerMet (elem) {
