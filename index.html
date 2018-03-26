@@ -10,60 +10,91 @@
   <script src="js/data_mets.js"></script>
 </head>
 <body>
-	<div class="main">
+	<div class="header">
 		<header>
-			<!-- <h1>Información Parkímetros</h1> -->
-			<div class="formulario">
-				<form action="#" id="formulario">
-					<section class="for">
-						<div class="barrio">
-							<label for="barrio" >Nº de Barrio</label><br>
-							<input list="listaBarrios" id="barrio" autocomplete="off" placeholder="Barrio">
-							<datalist id="listaBarrios">
-								<option value="44">
-								<option value="45">
-								<option value="46">
-								<option value="51">
-								<option value="52">
-								<option value="53">
-								<option value="54">
-								<option value="55">
-								<option value="56">
-								<option value="61">
-								<option value="62">
-								<option value="63">
-								<option value="64">
-								<option value="65">
-								<option value="66">
-								<option value="75">
-								<option value="76">
-								<option value="84">
-								<option value="85">
-								<option value="93">
-							</datalist>
-						</div>
-						<div class="met">
-							<label for="met">Nº de Parkímetro</label><br>
-							<input name="met" id="met" type="number" placeholder="Númeto MET" autocomplete="off"><br>
-						</div>
-						<div class="boton">
-							<button id="botonMapa" type="submit">Buscar</button>
-						</div>
-					</section>
-				</form>  
-			</div>
-		</header>
+				<div class="formulario">
+					<form action="#" id="formulario">
+						<section class="for">
+							<div class="barrio">
+								<label for="barrio" >Nº de Barrio</label><br>
+								<input list="listaBarrios" id="barrio" autocomplete="off" placeholder="Barrio">
+								<datalist id="listaBarrios">
+									<option value="44">
+									<option value="45">
+									<option value="46">
+									<option value="51">
+									<option value="52">
+									<option value="53">
+									<option value="54">
+									<option value="55">
+									<option value="56">
+									<option value="61">
+									<option value="62">
+									<option value="63">
+									<option value="64">
+									<option value="65">
+									<option value="66">
+									<option value="75">
+									<option value="76">
+									<option value="84">
+									<option value="85">
+									<option value="93">
+								</datalist>
+							</div>
+							<div class="met">
+								<label for="met">Nº de Parkímetro</label><br>
+								<input name="met" id="met" type="number" placeholder="Númeto MET" autocomplete="off"><br>
+							</div>
+							<div class="boton">
+								<button id="botonMapa" type="submit">Buscar</button>
+							</div>
+						</section>
+					</form>  
+				</div>
+			</header>
+		
+	</div>
+	<div class="main">
+		
 		<section class="cajaInfo">
 			<div class="info"></div>
 		</section>
 		<div id="mapa">
 			<div id="map"></div>
 		</div>
-		
 	</div>
-	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX2HNbva5rTOcAvc3TabY55P4Tk1LXIlY&initMap"
-    async defer></script>
+<!-- 	<ul>
+		<li>
+			<input type="text" id="Barrios" autocomplete="off" placeholder="Barrio">
+			<ul id="Lista_barrios">
+				<div class="lista">
+					<li><p>44</p></li>
+					<li><p>45</p></li>
+					<li><p>46</p></li>
+					<li><p>51</p></li>
+					<li><p>52</p></li>
+					<li><p>53</p></li>
+					<li><p>54</p></li>
+					<li><p>55</p></li>
+					<li><p>56</p></li>
+					<li><p>61</p></li>
+					<li><p>62</p></li>
+					<li><p>63</p></li>
+					<li><p>64</p></li>
+					<li><p>65</p></li>
+					<li><p>66</p></li>
+					<li><p>75</p></li>
+					<li><p>76</p></li>
+					<li><p>84</p></li>
+					<li><p>85</p></li>
+					<li><p>93</p></li>
+				</div>
+			</ul>
+		</li>
+	</ul>
+ -->	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX2HNbva5rTOcAvc3TabY55P4Tk1LXIlY"></script>
+   <script src="js/MAP.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>

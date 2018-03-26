@@ -10,7 +10,11 @@ document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 const BARRIO = INPUT[0];
 const MET = INPUT[1];
 
-let lat=40.445493, long=-3.672232;
+var latlng = {lat: 40.4378698, lng: -3.8196216};
+let zoon = 10;
+let ui = new UI(latlng, zoon);
+
+let lat, long;
 const parkimetros = [...items];
 
 function obtenetDatos(e) {
@@ -44,12 +48,18 @@ function obtenetDatos(e) {
 					INFO.className = 'info';
 					INFO.innerHTML = html;
 					INFO.style.display = 'block';
-					lat = parseFloat(mostrar.latitud);
-					long = parseFloat(mostrar.longitud);
+					document.querySelector('#mapa').style.top = '20px';
+					lat = Number( mostrar.latitud );
+					lng = Number( mostrar.longitud );
+					zoon = 17;
+					latlng = {lat: lat, lng: lng};
+					ui = new UI(latlng, zoon);
+					ui.mostrarPin(latlng);
 
-						
 					break;
 				}else{
+					document.querySelector('#mapa').style.top = '20px';
+					INFO.style.display = 'block';
 					INFO.classList.add('noEncontrado');
 					html = `<h3>El número de Barrio</br>
 					o Parkímetro es incorrecto...</h3>`;
@@ -59,29 +69,27 @@ function obtenetDatos(e) {
 		}
 	}
 }
+
+
+
 function mostrarMapa () {
 	document.getElementById('mapa').style.display = 'block';
 	document.getElementById('map').style.display = 'block';
-	initMap();
-}
-
-var map;
-function initMap() {
-	console.log("latitud: "+ lat);
-	console.log("longitud: "+ long);
-	var latlong = {lat: lat, lng: long};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: latlong,
-    zoom: 16
-  });
-  var marker = new google.maps.Marker({
-    position: latlong,
-    map: map
-  });
 }
 
 
+// const UL_BARRIO = document.getElementById('Barrios');
+// const LISTA = document.getElementById('Lista_barrios');
+// const MENU = document.querySelector('.lista');
+// UL_BARRIO.addEventListener("focus", deplegarMenu);
+// UL_BARRIO.addEventListener("blur", plegarMenu);
 
 
-
+// function deplegarMenu () {
+// 	MENU.style.height = '200px';
+// 	LISTA.style.display = 'block';
+// }
+// function plegarMenu () {
+// 	LISTA.style.display = 'none';
+// }
 
