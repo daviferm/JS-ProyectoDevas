@@ -10,7 +10,7 @@ document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 const BARRIO = INPUT[0];
 const MET = INPUT[1];
 
-var latlng = {lat: 40.4378698, lng: -3.8196216};
+var latlng = {lat: 40.4169473, lng: -3.7035285};
 let zoon = 10;
 let ui = new UI(latlng, zoon);
 
@@ -41,14 +41,12 @@ function obtenetDatos(e) {
 					<p>BARRIO: ${mostrar.barrio}</p>
 					<p>DIRECCIÓN: ${mostrar.direccion}</p>
 					<p>FABRICANTE: ${mostrar.fabricante}</p>
-					<p>latitud: ${mostrar.latitud}</p>
-					<p>longitud: ${mostrar.longitud}</p>
 					<button type="button" class="botonMapa">Mapa</button>`;
 					botonMap = `<button type="button" class="botonMapa">Mapa</button>`
 					INFO.className = 'info';
 					INFO.innerHTML = html;
 					INFO.style.display = 'block';
-					document.querySelector('#mapa').style.top = '20px';
+					document.querySelector('#mapa').style.top = '15px';
 					lat = Number( mostrar.latitud );
 					lng = Number( mostrar.longitud );
 					zoon = 17;
