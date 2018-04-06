@@ -33,9 +33,10 @@ let tarifaNormal = [...tarifaN];
 alias.forEach(function(elemento,index){
 	//Obtenemos el Barrio 
 	numBarrio = elemento.substr(3,2);
+	barrio.push(numBarrio);
+	
 	registrarBarrio(numBarrio, index);
 
-	barrio.push(numBarrio);
 
 	//Añadimos el fabricante al array "fabricante"
 
@@ -68,14 +69,6 @@ alias.forEach(function(elemento,index){
 	//Añadimos los elementos de "alias" al set.
 	items.add(elemento);
 })
-// alias.forEach(function(el){
-// 	for(let i = 0; i < tarifaNormal.length; i++){
-// 		if(el == tarifaNormal[i]){
-// 			console.log(el);
-// 		}
-// 	}
-// })
-
 
 function registrarBarrio (numBarrio, index) {
 	switch (numBarrio) {

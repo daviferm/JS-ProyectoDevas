@@ -3,12 +3,18 @@
 let INPUT = document.querySelectorAll("input");
 const INFO = document.querySelector(".info");
 const MAPA_BOTON = document.getElementById('botonMapa');
+const teclado = document.querySelector('.teclasNumero');
+
 MAPA_BOTON.addEventListener('click', mostrarMapa);
+
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 
 const BARRIO = INPUT[0];
 const MET = INPUT[1];
+
+MET.addEventListener("focus", mostrarTeclado);
+MET.addEventListener("blur", ocultarTeclado);
 
 var latlng = {lat: 40.4169473, lng: -3.7035285};
 let zoon = 10;
@@ -41,6 +47,7 @@ function obtenetDatos(e) {
 					<p>BARRIO: ${mostrar.barrio}</p>
 					<p>DIRECCIÓN: ${mostrar.direccion}</p>
 					<p>FABRICANTE: ${mostrar.fabricante}</p>
+					<p>TARIFA: ${mostrar.tarifa}</p>
 					<button type="button" class="botonMapa">Mapa</button>`;
 					botonMap = `<button type="button" class="botonMapa">Mapa</button>`
 					INFO.className = 'info';
@@ -75,6 +82,24 @@ function mostrarMapa () {
 	document.getElementById('map').style.display = 'block';
 }
 
+
+const teclas = [1,2,3,4,5,6,7,8,9,"OK",0,"OCULTAR"];
+
+for( let i=0; i < teclas.length; i++){
+	
+	let tecla = document.createElement('button');
+	tecla.classList.add('botonTecla');
+	tecla.textContent = teclas[i];
+	// tecla.setAttribute(name: 'data-key', value: 'i');
+	document.querySelector('.teclasNumero').appendChild(tecla);
+}
+
+function mostrarTeclado (e) {
+	teclado.style.display = 'inline-flex';
+}
+function ocultarTeclado () {
+	teclado.style.display = 'none';
+}
 
 // const UL_BARRIO = document.getElementById('Barrios');
 // const LISTA = document.getElementById('Lista_barrios');

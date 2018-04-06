@@ -42,7 +42,7 @@ body .main{
 }
 .formulario .barrio,
 .formulario .met,
-.formulario .boton {
+.formulario .botonForm {
   position: relative;
   border: 0px solid black;
   width: 120px;
@@ -60,7 +60,7 @@ body .main{
   background-color: #E1E1E1;
   border-color: #FCDC65;
 }
-.formulario button{
+.formulario #botonMapa{
   position: absolute;
   left: 5px;
   margin-top: 24px;
@@ -74,7 +74,7 @@ body .main{
   outline: none;
   box-shadow: 2px 2px 10px gray;
 }
-.formulario button:active{
+.formulario #botonMapa:active{
   transform: scale(.95);
 }
 .main .cajaInfo{
@@ -112,7 +112,7 @@ body .main{
   text-align: center;
   color: #000000;
 }
-.botonMapa{
+/*.botonMapa{
   position: absolute;
   display: none;
   bottom: 20px;
@@ -125,7 +125,7 @@ body .main{
   color: #CCCCCC;
   font-size: 1em;
   outline: none;
-}
+}*/
 #mapa{
   position: relative;
   display: block;
@@ -162,7 +162,33 @@ body .main{
   overflow-y: scroll;
   transition-duration: .5s;
 }
-
+.teclasNumero{
+  position: fixed;
+  display: none;
+  justify-content: flex-start;
+  flex-flow: row;
+  flex-wrap: wrap;
+  top: 80px;
+  left: 35%;
+  width: 185px;
+  min-height: 100px;
+  z-index: 150;
+  border: 0px solid black;
+}
+.botonTecla{
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  background-color: #999999;
+  padding-top: 5px;
+  border: 1px solid black;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+}
 
 @media screen and (min-width: 480px){
   body{
