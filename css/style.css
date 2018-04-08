@@ -1,7 +1,11 @@
 
 body{
+    background: #e96443;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #904e95, #e96443); 
 }
 header{
+  position: relative;
   border: 0px solid black;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -22,8 +26,24 @@ body .main{
   flex-direction: column;
   align-content: flex-start;
 }
-#barrio, #met{
-  
+.spinner{
+  position: relative;
+  bottom: -10px;
+  display: block;
+  width: 0%;
+  height: 3px;
+  background-color: #54CC14;
+}
+.spinner.animation{
+  animation: .5s progreso 1;
+}
+@keyframes progreso{
+  0%{
+    width: 0%;
+  }
+  90%{
+    width: 100%;
+  }
 }
 
 .formulario{
@@ -59,6 +79,14 @@ body .main{
 .formulario input:focus{
   background-color: #E1E1E1;
   border-color: #FCDC65;
+}
+.form-control{
+  height: 34px;
+  width: 80px;
+  border-radius: 4px;
+  margin: 10px 10px 10px 15px;
+  font-size: 1em;
+  outline: none;
 }
 .formulario #botonMapa{
   position: absolute;
@@ -112,20 +140,7 @@ body .main{
   text-align: center;
   color: #000000;
 }
-/*.botonMapa{
-  position: absolute;
-  display: none;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 30px;
-  border-radius: 6px;
-  background-color: #3366FF;
-  cursor: pointer;
-  color: #CCCCCC;
-  font-size: 1em;
-  outline: none;
-}*/
+
 #mapa{
   position: relative;
   display: block;
@@ -162,33 +177,6 @@ body .main{
   overflow-y: scroll;
   transition-duration: .5s;
 }
-.teclasNumero{
-  position: fixed;
-  display: none;
-  justify-content: flex-start;
-  flex-flow: row;
-  flex-wrap: wrap;
-  top: 80px;
-  left: 35%;
-  width: 185px;
-  min-height: 100px;
-  z-index: 150;
-  border: 0px solid black;
-}
-.botonTecla{
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  height: 40px;
-  text-align: center;
-  background-color: #999999;
-  padding-top: 5px;
-  border: 1px solid black;
-  border-radius: 6px;
-  font-size: 1em;
-  cursor: pointer;
-  outline: none;
-}
 
 @media screen and (min-width: 480px){
   body{
@@ -203,9 +191,10 @@ body .main{
     display: inline-flex;
     justify-content: center;
   }
-  header{
+  header, .spinner{
     width: 480px;
   }
+
   .cajaInfo{
     width: 100%;
     display: inline-flex;

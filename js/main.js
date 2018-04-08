@@ -1,20 +1,17 @@
 
 
-let INPUT = document.querySelectorAll("input");
+let MET = document.querySelector("input");
 const INFO = document.querySelector(".info");
 const MAPA_BOTON = document.getElementById('botonMapa');
 const teclado = document.querySelector('.teclasNumero');
+const selectBarrio = document.getElementById('barrio');
+
 
 MAPA_BOTON.addEventListener('click', mostrarMapa);
 
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 
-const BARRIO = INPUT[0];
-const MET = INPUT[1];
-
-MET.addEventListener("focus", mostrarTeclado);
-MET.addEventListener("blur", ocultarTeclado);
 
 var latlng = {lat: 40.4169473, lng: -3.7035285};
 let zoon = 10;
@@ -25,15 +22,16 @@ const parkimetros = [...items];
 
 function obtenetDatos(e) {
   e.preventDefault();
+  const spinner = document.querySelector('.spinner');
+  spinner.classList.add('animation');
 
-	let barrio = BARRIO.value;
-	let met = MET.value;
-	let botonMap;
-	let html;
-	if(barrio.length < 2){
-		BARRIO.style.borderColor = 'red';
-	}else{
-		BARRIO.style.borderColor = '';
+  setTimeout(function(){
+
+		const barrioSeleccionado = selectBarrio.options[selectBarrio.selectedIndex].value;
+		let met = MET.value;
+		let botonMap;
+		let html;
+		
 		if(met.length < 3 || met.length > 4){
 			MET.style.borderColor = 'red';
 		}else if (met.length == 3) {
@@ -41,15 +39,15 @@ function obtenetDatos(e) {
 			met = 0 + MET.value;
 
 			for(let i=0; i < parkimetros.length; i++){
-				if( parkimetros[i].startsWith(barrio, 3) && parkimetros[i].endsWith(met) ){
+				if( parkimetros[i].startsWith(barrioSeleccionado, 3) && parkimetros[i].endsWith(met) ){
 					let mostrar = dataAlias[i];
 					html = `<p>NÚMERO: ${mostrar.alias}</p>
 					<p>BARRIO: ${mostrar.barrio}</p>
 					<p>DIRECCIÓN: ${mostrar.direccion}</p>
 					<p>FABRICANTE: ${mostrar.fabricante}</p>
 					<p>TARIFA: ${mostrar.tarifa}</p>
-					<button type="button" class="botonMapa">Mapa</button>`;
-					botonMap = `<button type="button" class="botonMapa">Mapa</button>`
+					`;
+					botonMap = `<button type="button" class="mostrarMapa">Mapa</button>`
 					INFO.className = 'info';
 					INFO.innerHTML = html;
 					INFO.style.display = 'block';
@@ -72,10 +70,9 @@ function obtenetDatos(e) {
 				}
 			}
 		}
-	}
+		spinner.classList.remove('animation');
+  }, 450);
 }
-
-
 
 function mostrarMapa () {
 	document.getElementById('mapa').style.display = 'block';
@@ -83,22 +80,15 @@ function mostrarMapa () {
 }
 
 
-const teclas = [1,2,3,4,5,6,7,8,9,"OK",0,"OCULTAR"];
 
-for( let i=0; i < teclas.length; i++){
-	
-	let tecla = document.createElement('button');
-	tecla.classList.add('botonTecla');
-	tecla.textContent = teclas[i];
-	// tecla.setAttribute(name: 'data-key', value: 'i');
-	document.querySelector('.teclasNumero').appendChild(tecla);
-}
+//Lenamos el listado de barrios
+const listaBarrios = [44,45,46,51,52,53,54,55,56,61,62,63,64,65,66,75,76,84,85,93];
 
-function mostrarTeclado (e) {
-	teclado.style.display = 'inline-flex';
-}
-function ocultarTeclado () {
-	teclado.style.display = 'none';
+for(let i = 0; i < listaBarrios.length; i++){
+  let option = document.createElement('option');
+	option.value = listaBarrios[i];
+	option.innerHTML = listaBarrios[i];
+	selectBarrio.appendChild(option);
 }
 
 // const UL_BARRIO = document.getElementById('Barrios');
