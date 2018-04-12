@@ -20,6 +20,7 @@ let ui = new UI(latlng, zoon);
 let lat, long;
 const parkimetros = [...items];
 
+//Comprobar datos del formulario y mostrarlos en pantalla
 function obtenetDatos(e) {
   e.preventDefault();
   const spinner = document.querySelector('.spinner');
@@ -71,9 +72,10 @@ function obtenetDatos(e) {
 			}
 		}
 		spinner.classList.remove('animation');
-  }, 450);
+  }, 200);
 }
 
+//Mostrar el mapa en con la posición del parkímetro
 function mostrarMapa () {
 	document.getElementById('mapa').style.display = 'block';
 	document.getElementById('map').style.display = 'block';
@@ -90,22 +92,6 @@ for(let i = 0; i < listaBarrios.length; i++){
 	option.innerHTML = listaBarrios[i];
 	selectBarrio.appendChild(option);
 }
-
-// const UL_BARRIO = document.getElementById('Barrios');
-// const LISTA = document.getElementById('Lista_barrios');
-// const MENU = document.querySelector('.lista');
-// UL_BARRIO.addEventListener("focus", deplegarMenu);
-// UL_BARRIO.addEventListener("blur", plegarMenu);
-
-
-// function deplegarMenu () {
-// 	MENU.style.height = '200px';
-// 	LISTA.style.display = 'block';
-// }
-// function plegarMenu () {
-// 	LISTA.style.display = 'none';
-// }
-
 
 
 
