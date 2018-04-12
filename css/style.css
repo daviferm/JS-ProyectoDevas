@@ -35,7 +35,7 @@ body .main{
   background-color: #54CC14;
 }
 .spinner.animation{
-  animation: .5s progreso 1;
+  animation: .3s progreso 1;
 }
 @keyframes progreso{
   0%{
@@ -191,7 +191,7 @@ body .main{
     display: inline-flex;
     justify-content: center;
   }
-  header, .spinner{
+  header{
     width: 480px;
   }
 
