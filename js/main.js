@@ -18,7 +18,8 @@ let zoon = 10;
 let ui = new UI(latlng, zoon);
 
 let lat, long;
-const parkimetros = [...items];
+// const parkimetros = [...items];
+
 
 //Comprobar datos del formulario y mostrarlos en pantalla
 function obtenetDatos(e) {
@@ -54,11 +55,45 @@ function mostrarMapa () {
 }
 
 //Función para mostrar la información del parkímetro
+// function mostrarInfo(barrioSeleccionado, met){
+// 	for(let i=0; i < parkimetros.length; i++){
+// 		if( parkimetros[i].startsWith(barrioSeleccionado, 3) && parkimetros[i].endsWith(met) ){
+// 			console.log(parkimetros[i]);
+// 			let mostrar = dataAlias[i];
+// 			html = `<p>NÚMERO: ${mostrar.alias}</p>
+// 			<p>BARRIO: ${mostrar.barrio}</p>
+// 			<p>DIRECCIÓN: ${mostrar.direccion}</p>
+// 			<p>FABRICANTE: ${mostrar.fabricante}</p>
+// 			<p>TARIFA: ${mostrar.tarifa}</p>
+// 			`;
+// 			botonMap = `<button type="button" class="mostrarMapa">Mapa</button>`
+// 			INFO.className = 'info';
+// 			INFO.innerHTML = html;
+// 			INFO.style.display = 'block';
+// 			document.querySelector('#mapa').style.top = '15px';
+// 			lat = Number( mostrar.latitud );
+// 			lng = Number( mostrar.longitud );
+// 			zoon = 17;
+// 			latlng = {lat: lat, lng: lng};
+// 			ui = new UI(latlng, zoon);
+// 			ui.mostrarPin(latlng);
+
+// 			break;
+// 		}else{
+// 			document.querySelector('#mapa').style.top = '20px';
+// 			INFO.style.display = 'block';
+// 			INFO.classList.add('noEncontrado');
+// 			html = `<h3>El número de Barrio</br>
+// 			o Parkímetro es incorrecto...</h3>`;
+// 			INFO.innerHTML = html;
+// 		}
+// 	}
+// }
 function mostrarInfo(barrioSeleccionado, met){
-	for(let i=0; i < parkimetros.length; i++){
-		if( parkimetros[i].startsWith(barrioSeleccionado, 3) && parkimetros[i].endsWith(met) ){
-			console.log(parkimetros[i]);
-			let mostrar = dataAlias[i];
+	for(let i=0; i < baseDatos.length; i++){
+		if( baseDatos[i].alias.startsWith(barrioSeleccionado, 3) && baseDatos[i].alias.endsWith(met) ){
+			console.log(baseDatos[i]);
+			let mostrar = baseDatos[i];
 			html = `<p>NÚMERO: ${mostrar.alias}</p>
 			<p>BARRIO: ${mostrar.barrio}</p>
 			<p>DIRECCIÓN: ${mostrar.direccion}</p>
@@ -100,6 +135,8 @@ for(let i = 0; i < listaBarrios.length; i++){
 	option.innerHTML = barriosHTML[i];
 	selectBarrio.appendChild(option);
 }
+
+
 
 
 
