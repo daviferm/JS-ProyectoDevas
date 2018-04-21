@@ -96,7 +96,7 @@ function mostrarInfo(barrioSeleccionado, met){
 			let mostrar = baseDatos[i];
 			html = `<p>NÚMERO: ${mostrar.alias}</p>
 			<p>BARRIO: ${mostrar.barrio}</p>
-			<p>DIRECCIÓN: ${mostrar.direccion}</p>
+			<p>DIRECCIÓN: <span class="span">${mostrar.direccion}</span></p>
 			<p>FABRICANTE: ${mostrar.fabricante}</p>
 			<p>TARIFA: ${mostrar.tarifa}</p>
 			`;
