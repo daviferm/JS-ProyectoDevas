@@ -6,7 +6,6 @@ body{
 }
 header{
   position: relative;
-  border: 0px solid black;
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: #2381AA;
@@ -72,7 +71,7 @@ body .main{
   width: 40px;
 }
 .formulario input{
-  height: 25px;
+  height: 22px;
   width: 80px;
   border-radius: 4px;
   margin: 10px 10px 10px 15px;
@@ -194,7 +193,8 @@ body .main{
   body .main{
     background-size: 480px;
   }
-  body .header{
+  body .header,
+  #mapa{
     display: inline-flex;
     justify-content: center;
   }
@@ -210,6 +210,10 @@ body .main{
   .main .cajaInfo .info{
     margin-left: 0%;
     width: 480px;
+  }
+  #map{
+    width: 550px;
+    margin-left: 0px;
   }
   
 }

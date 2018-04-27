@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="../js/modernizr.js"></script>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/listas.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../js/baseDatos.js"></script>
+  <title>Listas Mantenimiento</title>
+</head>
+<body>
+  <div class="header">
+    <header>
+      <div class="formulario">
+        <form action="#" id="formulario">
+          <section class="for">
+            <div class="barrio">
+              <label for="barriosOption">Barrio:</label>
+              <select class="form-control" id="barriosOption">
+              </select>
+            </div>
+            <div class="met">
+              <label for="met">Nº de Parkímetro:</label><br>
+              <input name="met" id="met" type="number" placeholder="Parkímetro" autocomplete="off"><br>
+            </div>
+            <div class="botonForm">
+              <button id="botonMapa" type="submit">Añadir</button>
+            </div>
+          </section>
+        </form>  
+      </div>
+      <div class="spinner"></div>
+    </header>
+  </div>
+  <div class="mainTwo">
+    <div class="contenido">
+      <div class="plantillas">
+        <div class="lista uno" data-key="uno" id="uno"><h2>Tarea Uno...</h2>
+        <div class="content"></div>
+        </div>
+        <div class="lista dos" data-key="dos" id="dos"><h2>Tarea Dos...</h2>
+        <div class="content"></div>
+        </div>
+        <div class="lista tres" data-key="tres" id="tres"><h2>Tarea Tres...</h2>
+        <div class="content"></div>
+        </div>
+        <div class="lista cuatro" data-key="cuatro" id="cuatro"><h2>Tarea Cuatro...</h2>
+        <div class="content"></div>
+        </div>
+        <div class="lista cinco" data-key="cinco" id="cinco"><h2>Tarea Cinco...</h2>
+        <div class="content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/mobile.js"></script>
+	<!-- <script src="../js/main.js"></script> -->
+  <script src="../js/listaApp.js"></script>
+  <!-- <script src="../js/mets.js"></script> -->
+</body>
+</html>
