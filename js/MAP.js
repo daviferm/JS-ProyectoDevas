@@ -8,11 +8,15 @@ class UI {
 	    zoom: zoon
 	  });
 	}
-	mostrarPin(latlng){
-	  let marker = new google.maps.Marker({
+	mostrarPin(latlng, img){
+		let image = '../img/parkeon.png';
+	  let marcador = new google.maps.Marker({
 	    position: latlng,
-	    map: this.mapa,
-	    title: 'Parkímetro'
+			map: this.mapa,
+			animation:
+			google.maps.Animation.DROP,
+			icon: img,
+			title: 'Parkímetro'
 	  });
 	}
 

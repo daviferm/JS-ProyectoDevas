@@ -46,12 +46,6 @@ function obtenetDatos(e) {
   }, 150);
 }
 
-//Mostrar el mapa en con la posición del parkímetro
-// function mostrarMapa () {
-// 	document.getElementById('mapa').style.display = 'block';
-// 	document.getElementById('map').style.display = 'block';
-// }
-
 //Función para mostrar la información del parkímetro
 function mostrarInfo(barrioSeleccionado, met){
 	for(let i=0; i < baseDatos.length; i++){
@@ -71,10 +65,11 @@ function mostrarInfo(barrioSeleccionado, met){
 			document.querySelector('#mapa').style.top = '15px';
 			lat = Number( mostrar.latitud );
 			lng = Number( mostrar.longitud );
+			let img = '../img/parkare.png';
 			zoon = 17;
 			latlng = {lat: lat, lng: lng};
 			ui = new UI(latlng, zoon);
-			ui.mostrarPin(latlng);
+			ui.mostrarPin(latlng, img);
 
 			break;
 		}else{
