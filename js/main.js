@@ -65,7 +65,7 @@ function mostrarInfo(barrioSeleccionado, met){
 			document.querySelector('#mapa').style.top = '15px';
 			lat = Number( mostrar.latitud );
 			lng = Number( mostrar.longitud );
-			let img = '../img/parkare.png';
+			let img = 'https://daviferm.github.io/ProyectoDevas/img/parkare.png';
 			zoon = 17;
 			latlng = {lat: lat, lng: lng};
 			ui = new UI(latlng, zoon);
