@@ -15,7 +15,7 @@ class UI {
 			map: this.mapa,
 			animation:
 			google.maps.Animation.DROP,
-			icon: img,
+			icon: 'https://daviferm.github.io/ProyectoDevas/img/parkare.png',
 			title: 'Parkímetro'
 	  });
 	}
