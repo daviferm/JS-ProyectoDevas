@@ -9,13 +9,13 @@ class UI {
 	  });
 	}
 	mostrarPin(latlng, img){
-		let image = '../img/parkeon.png';
+		let image = 'https://daviferm.github.io/ProyectoDevas/img/parkare.png';
 	  let marcador = new google.maps.Marker({
 	    position: latlng,
 			map: this.mapa,
 			animation:
 			google.maps.Animation.DROP,
-			icon: 'https://daviferm.github.io/ProyectoDevas/img/parkare.png',
+			icon: image,
 			title: 'Parkímetro'
 	  });
 	}
