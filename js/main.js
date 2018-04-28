@@ -65,7 +65,14 @@ function mostrarInfo(barrioSeleccionado, met){
 			document.querySelector('#mapa').style.top = '15px';
 			lat = Number( mostrar.latitud );
 			lng = Number( mostrar.longitud );
-			let img = 'https://daviferm.github.io/ProyectoDevas/img/wispark.png';
+			let img;
+			if(baseDatos[i].alias.startsWith(1,5)){
+				img = 'https://daviferm.github.io/ProyectoDevas/img/parkare.png';
+			} else if(baseDatos[i].alias.startsWith(2,5)){
+				img = 'https://daviferm.github.io/ProyectoDevas/img/wispark.png';
+			} else {
+				img = 'https://daviferm.github.io/ProyectoDevas/img/parkeon.png';
+			}
 			zoon = 17;
 			latlng = {lat: lat, lng: lng};
 			ui = new UI(latlng, zoon);
