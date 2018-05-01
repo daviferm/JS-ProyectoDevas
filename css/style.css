@@ -163,6 +163,58 @@ body .main{
   height: 100%;
   margin-left: 1%;
 }
+#mapa .btn{
+  /* display: none; */
+  position: fixed;
+  right: 15%;
+  top: 90%;
+  width: 120px;
+  height: 35px;
+  background-color: rgb(83, 76, 187);
+  cursor: pointer;
+  font-size: 1em;
+  outline: none;
+}
+footer{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 100vh;
+  width: 100%;
+  height: 100px;
+  background: rgb(232, 229, 229);
+  background: transparent;
+  transition-duration: .8s;
+}
+footer.btnFooter{
+  top: 90vh;
+}
+/* footer:before{
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -20px;
+  background: transparent;
+  border-radius: 50%;
+} */
+footer #posicionBtn{
+  width: 120px;
+  height: 35px;
+  background: rgb(69, 124, 206);
+  border-top-right-radius: 15% 50%;
+  border-bottom-right-radius: 15% 50%;
+  border-bottom-left-radius: 15% 50%;
+  border-top-left-radius: 15% 50%;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+
 .scroll{
   position: relative;
   display: block;

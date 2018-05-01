@@ -6,6 +6,9 @@ const MAPA_BOTON = document.getElementById('botonMapa');
 const teclado = document.querySelector('.teclasNumero');
 const selectBarrio = document.getElementById('barrio');
 
+const $miPosicion = document.getElementById('posicionBtn');
+$miPosicion.addEventListener('click', mostrarMiPosicion);
+
 
 // MAPA_BOTON.addEventListener('click', mostrarMapa);
 
@@ -41,8 +44,8 @@ function obtenetDatos(e) {
 		}else if(met.length === 4){
 			mostrarInfo(barrioSeleccionado, met);
 		}
-
 		spinner.classList.remove('animation');
+		document.querySelector('footer').classList.add('btnFooter');
   }, 150);
 }
 
@@ -77,8 +80,8 @@ function mostrarInfo(barrioSeleccionado, met){
 			latlng = {lat: lat, lng: lng};
 			ui = new UI(latlng, zoon);
 			ui.mostrarPin(latlng, img);
-
-			break;
+			// ui.miPosicion(latlng, zoon);
+			break; 
 		}else{
 			document.querySelector('#mapa').style.top = '20px';
 			INFO.style.display = 'block';
@@ -88,6 +91,10 @@ function mostrarInfo(barrioSeleccionado, met){
 			INFO.innerHTML = html;
 		}
 	}
+}
+
+function mostrarMiPosicion(){
+	ui.miPosicion(latlng, zoon);
 }
 
 
@@ -101,6 +108,8 @@ for(let i = 0; i < listaBarrios.length; i++){
 	option.innerHTML = barriosHTML[i];
 	selectBarrio.appendChild(option);
 }
+
+
 
 
 
