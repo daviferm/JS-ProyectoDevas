@@ -187,6 +187,8 @@ footer .btn{
 }
 
 footer #posicionBtn{
+  position: relative;
+  display: inline-block;
   width: 120px;
   height: 35px;
   background: rgb(69, 124, 206);
@@ -194,12 +196,26 @@ footer #posicionBtn{
   border-bottom-right-radius: 15% 50%;
   border-bottom-left-radius: 15% 50%;
   border-top-left-radius: 15% 50%;
-  color: white;
   outline: none;
   cursor: pointer;
   z-index: 110;
+  color: white;
 }
-
+footer #posicionBtn p{
+  font-size: .9em;
+  color: white;
+  position: absolute;
+  top: 0px;
+  right: 12px;
+  margin-top: 8px;
+}
+footer #posicionBtn i{
+  width: 20px;
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  color: white;
+}
 
 .scroll{
   position: relative;
