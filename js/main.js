@@ -8,7 +8,7 @@ const teclado = document.querySelector('.teclasNumero');
 const selectBarrio = document.getElementById('barrio');
 
 const $miPosicion = document.getElementById('posicionBtn');
-$miPosicion.addEventListener('click', mostrarMiPosicion);
+$miPosicion.addEventListener('click', navegacion);
 
 
 // MAPA_BOTON.addEventListener('click', mostrarMapa);
@@ -57,7 +57,7 @@ function mostrarInfo(barrioSeleccionado, met){
 	for(let i=0; i < baseDatos.length; i++){
 		if( baseDatos[i].alias.startsWith(barrioSeleccionado, 3) && baseDatos[i].alias.endsWith(met) ){
 			console.log(baseDatos[i]);
-
+		
 			document.querySelector('footer').classList.add('btnFooter');
 
 			let mostrar = baseDatos[i];
@@ -101,8 +101,9 @@ function mostrarInfo(barrioSeleccionado, met){
 	}
 }
 
-function mostrarMiPosicion(){
-	ui.miPosicion(latlng, zoon);
+function navegacion(){
+	
+	ui.comoLlegar(latlng, zoon);
 }
 
 

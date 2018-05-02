@@ -8,12 +8,13 @@ class UI {
 	    zoom: zoon
 		});
 	}
-	miPosicion(latlng, zoon){
+	comoLlegar(latlng, zoon){
 
 		if ((navigator.platform.indexOf("iPhone") != -1) || 
 		 (navigator.platform.indexOf("iPod") != -1) || 
 		 (navigator.platform.indexOf("iPad") != -1)){
 
+			
 			 window.open("maps://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
 		 } else {
 			
