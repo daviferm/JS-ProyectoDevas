@@ -243,10 +243,10 @@ footer .btnANDROID{
   top: 90vh;
 }
 footer.btnFooter{
-  top: 86vh;
+  top: 88vh;
 }
 footer .btn{
-  width: 80%;
+  width: 90%;
   height: auto;
   display: flex;
   justify-content: flex-start;
