@@ -4,14 +4,10 @@ let MET = document.querySelector("input");
 const cajaMet = document.querySelector('.inputMet');
 const INFO = document.querySelector(".info");
 const MAPA_BOTON = document.getElementById('botonMapa');
-const teclado = document.querySelector('.teclasNumero');
 const selectBarrio = document.getElementById('barrio');
 
 const $miPosicion = document.getElementById('posicionBtn');
 $miPosicion.addEventListener('click', navegacion);
-
-
-// MAPA_BOTON.addEventListener('click', mostrarMapa);
 
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);

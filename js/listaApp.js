@@ -1,12 +1,15 @@
 
-const $plantillas = document.querySelectorAll('.lista');
+const $plantillas = document.querySelectorAll('.flechaUp');
+const cajaMet = document.querySelector('.inputMet');
+const MAPA_BOTON = document.getElementById('botonMapa');
+const MET = document.querySelector("input");
 
-document.addEventListener('DOMContentLoaded', mostrarFichas)
+document.addEventListener('DOMContentLoaded', mostrarFichas);
+
+document.querySelector('#formulario').addEventListener('submit', añadirMet);
 
 for(let i = 0; i < $plantillas.length; i++){
-
   $plantillas[i].addEventListener('click', activarPlantilla);
-
 }
 
 class Ficha {
@@ -21,49 +24,56 @@ const listaTres = new Ficha(tres);
 const listaCuatro = new Ficha(cuatro);
 const listaCinco = new Ficha(cinco);
 
-console.log(listaUno);
-console.log(listaDos);
-console.log(listaTres);
-console.log(listaCuatro);
-console.log(listaCinco);
 
-function mostrarFichas(){
+//Funciones
+
+function mostrarFichas(elem){
+
+  let flecha = elem.target;
+  flecha.className = 'fas fa-angle-up';
+
   let margin = 0;
   let zIndex = 0;
   $plantillas.forEach(function(el){
-    el.style.zIndex = `${zIndex}`;
-    el.style.marginTop = `${margin}px`;
+    plantilla = el.parentElement;
+    plantilla.style.zIndex = `${zIndex}`;
+    plantilla.style.marginTop = `${margin}px`;
     margin += 80;
     zIndex ++;
   });
 }
 
-//Funciones
 
 
 let fichaActivada, targeta;
 function activarPlantilla(el){
+  let elemento = el.target.parentElement.parentElement;
+  let flecha = el.target;
+
+  flecha.classList.add('rotacion');
+
   if(fichaActivada !== undefined){
-    mostrarFichas();
+    mostrarFichas(el);
     fichaActivada = undefined;
     targeta = undefined;
+    console.log(targeta);
   }else{
-    targeta = el.target.parentElement.id;
-    el.target.parentElement.style.marginTop = '0px';
-    let plantilla = el.target.parentElement.getAttribute('data-key');
+    targeta = elemento.id;
+    console.log(targeta);
+    elemento.style.marginTop = '0px';
+    let plantilla = elemento.getAttribute('data-key');
     let atributo;
     let margin = 650;
     for(let i = 0; i < $plantillas.length; i++){
-      atributo = $plantillas[i].getAttribute('data-key');
+      atributo = $plantillas[i].parentElement.getAttribute('data-key');
       if(atributo !== plantilla){
-        $plantillas[i].style.marginTop = `${margin}px`;
+        $plantillas[i].parentElement.style.marginTop = `${margin}px`;
         margin += 2;
       } 
     }
-    zIndex(el);
+    // zIndex(el);
     fichaActivada = true;
   }
-  
 }
 function zIndex(el){
   let plantilla = el.target.parentElement;
@@ -74,7 +84,54 @@ function zIndex(el){
     plantilla.style.zIndex = '100';
   }, 300)
 }
+// Funcion para optener datos del formulario
 
+function añadirMet(e){
+  e.preventDefault();
+
+  const spinner = document.querySelector('.spinner');
+  spinner.classList.add('animation');
+
+  setTimeout(function(){
+
+		const barrioSeleccionado = selectBarrio.options[selectBarrio.selectedIndex].value;
+		let met = MET.value;
+		let botonMap;
+		let html;
+		
+		if(met.length < 3 || met.length > 4){
+			MET.style.borderColor = 'red';
+			cajaMet.classList.add('rebote');
+			setTimeout(function(){
+				cajaMet.classList.remove('rebote');
+			}, 1000);
+		}else if (met.length == 3) {
+			MET.style.borderColor = '';
+      met = 0 + MET.value;
+      anadirInfo(barrioSeleccionado, met);
+		}else if(met.length === 4){
+      anadirInfo(barrioSeleccionado, met);
+		}
+		spinner.classList.remove('animation');
+  }, 150);
+}
+
+//Añadir parkímetro a la lista seleccionada
+function anadirInfo(barrio, met){
+  if(targeta !== undefined){
+
+    let elem = baseDatos.find(function(el){
+      return el.alias.startsWith(barrio, 3) && el.alias.endsWith(met)
+    })
+    if(elem !== undefined){
+      console.log("Plantilla: " + targeta);
+      console.log("Parkímetro: " + elem.alias);
+    } else {
+      console.error(elem);
+    }
+    
+  } 
+}
 
 const selectBarrio = document.getElementById('barriosOption');
 
