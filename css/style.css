@@ -91,9 +91,6 @@ body .main{
     transform: translateX(-2px);
   }
 }
-.formulario.met.incompleto{
-
-}
 .formulario .barrio select option{
   width: 40px;
 }
@@ -110,7 +107,7 @@ body .main{
   border-color: #FCDC65;
 }
 .form-control{
-  height: 34px;
+  height: 30px;
   width: 80px;
   border-radius: 4px;
   margin: 10px 10px 10px 15px;
@@ -119,10 +116,10 @@ body .main{
 }
 .formulario #botonMapa{
   position: absolute;
-  left: 5px;
-  margin-top: 24px;
-  width: 90px;
-  height: 34px;
+  left: 15px;
+  margin-top: 22px;
+  width: 60px;
+  height: 30px;
   border-radius: 4px;
   background-color: #66CC99;
   cursor: pointer;
