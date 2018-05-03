@@ -92,6 +92,9 @@ body mainTwo header{
   color: black;
   transition-duration: .5s;
 }
+.lista .flechaUp i:nth-of-type(1){
+  margin-top: 8px;
+}
 .rotacion{
   transform: rotateX(180deg);
 }

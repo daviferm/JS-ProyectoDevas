@@ -27,11 +27,12 @@ const listaCinco = new Ficha(cinco);
 
 //Funciones
 
-function mostrarFichas(elem){
+function mostrarFichas(flecha){
 
-  let flecha = elem.target;
-  flecha.className = 'fas fa-angle-up';
-
+  for(let i = 0; i < flecha.length; i++){
+    flecha[i].classList.remove('rotacion');
+  }
+  
   let margin = 0;
   let zIndex = 0;
   $plantillas.forEach(function(el){
@@ -48,18 +49,20 @@ function mostrarFichas(elem){
 let fichaActivada, targeta;
 function activarPlantilla(el){
   let elemento = el.target.parentElement.parentElement;
-  let flecha = el.target;
+  let flecha = el.target.parentElement.children;
 
-  flecha.classList.add('rotacion');
+  for(let i = 0; i < flecha.length; i++){
+    flecha[i].classList.add('rotacion');
+  }
 
   if(fichaActivada !== undefined){
-    mostrarFichas(el);
+    mostrarFichas(flecha);
     fichaActivada = undefined;
     targeta = undefined;
-    console.log(targeta);
+    console.log("Tarjeta: " + targeta);
   }else{
     targeta = elemento.id;
-    console.log(targeta);
+    console.log("Tarjeta: " + targeta);
     elemento.style.marginTop = '0px';
     let plantilla = elemento.getAttribute('data-key');
     let atributo;
