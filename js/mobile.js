@@ -8,7 +8,7 @@ var isMobile = {
 }
 if(isMobile.mobilecheck()){
 	document.querySelector('header').style.fontSize = '.8em';
-	document.querySelector('#barrio').style.fontSize = '1.2em';
+	//document.querySelector('#barrio').style.fontSize = '1.2em';
 	document.querySelector('#met').style.fontSize = '1.2em';
 	// alert(isMobile.mobilecheck());
 }

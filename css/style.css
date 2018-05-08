@@ -5,7 +5,7 @@ body{
     background: linear-gradient(to right, #904e95, #e96443); 
     font-family: 'Roboto', sans-serif;
 }
-header{
+.header > header{
   position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
