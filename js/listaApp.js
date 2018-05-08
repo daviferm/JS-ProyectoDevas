@@ -217,7 +217,7 @@ function crearLi(plantilla, parkimetro){
   
   // <input id="checkBox" type="checkbox">
   let html = `
-  <label  id="alias" for"checkBox">${parkimetro.alias}</label>
+  <label  id="alias">${parkimetro.alias}</label>
   <span class="equix">X</span>
   `;
   let li = document.createElement('li');
@@ -239,14 +239,14 @@ function crearLi(plantilla, parkimetro){
     li.addEventListener('click', mostrarInformacion);
   }
 
-  li.addEventListener('click', mostrarInformacion);
 }
 
 //Mostrar información del parkímetro seleccionado
 function mostrarInformacion(e){
-  if(e.target.id == 'alias'){
-    const num = e.target;
-    console.log( num.parentElement);
+  console.log(e.target.id);
+  console.log(e.target.parentElement.parentElement.id);
+  if(e.target.parentElement.parentElement.id == 'alias' || e.target.id == 'alias'){
+    console.log( e.target.textContent );
   }
   if(e.target.textContent === 'X'){
     const li = e.target.parentElement.parentElement.parentElement;

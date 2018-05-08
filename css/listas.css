@@ -145,6 +145,7 @@ body mainTwo{
 .liMet{
   position: relative;
   top: 0px;
+  height: 35px;
   list-style: none;
   cursor: pointer;
   display: flex;
@@ -153,9 +154,13 @@ body mainTwo{
   align-content: center;
   border: 1px solid black;
   border-radius: 6px;
-  margin: 3px;
+  margin: 5px;
   padding: 0em 1.2em;
   background: rgb(96, 165, 203);
+  background: -webkit-gradient( linear, left top, left bottom, 
+    color-stop(0.05, #F3F781), 
+    color-stop(1, #FACC2E) );
+  background: -moz-linear-gradient( center top, #F3F781 5%, #FACC2E 100% );
 }
 #checkBox{
   outline: none;
@@ -164,37 +169,24 @@ body mainTwo{
 .liMet label{
   cursor: pointer;
   border: 0px solid black;
-  width: 40%;
-  padding: .5em 0px;
+  width: 70%;
+  height: 76%;
+  font-size: 1.1em;
+  padding-top: .5em;
 }
 .liMet span{
-  padding: 9px 6px 0px 6px;
+  width: 20%;
+  padding-top: .6em;
+  text-align: center;
   font-size: 1em;
-  background: rgb(18, 22, 14);
-  color: beige;
-  border-radius: 30%;
+  color: rgb(8, 8, 7);
 }
 .lista .content{
   position: relative;
   height: 100%;
   overflow: scroll;
-  /* transform: rotateX(180deg); */
 }
-.lista .content:hover{
-  transform-style: preserve-3d;
-  perspective: 6000px;
-  backface-visibility: visible;
-  /* animation: .8s giro 1; */
-  animation-fill-mode: forwards;
-}
-@keyframes giro{
-  0%{
-    transform: rotateY(0deg);
-  }
-  100%{
-    transform: rotateY(180deg);
-  }
-}
+
 .lista .content .backface,
 .lista .content .frontface{
   position: absolute;
@@ -215,38 +207,6 @@ body mainTwo{
 .lista .content > p{
   margin-left: 20px;
 }
-.liMet{
-  position: relative;
-  top: 0px;
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  border: 1px solid black;
-  border-radius: 6px;
-  margin: 2px;
-  padding: 0em 1.2em;
-  background: rgb(123, 150, 165);
-}
-#checkBox{
-  outline: none;
-  margin-top: 8px;
-}
-.liMet label{
-  cursor: pointer;
-  border: 0px solid black;
-  width: 40%;
-}
-.liMet span{
-  padding: 12px 8px 8px 8px;
-  font-size: 1em;
-  background: rgb(18, 22, 14);
-  color: beige;
-  border-radius: 20%;
-}
-
 
 
 @media screen and (min-width: 480px){
