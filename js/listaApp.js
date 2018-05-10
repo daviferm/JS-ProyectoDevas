@@ -2,10 +2,12 @@
 const $plantillas = document.querySelectorAll('.flechaUp');
 const cajaMet = document.querySelector('.inputMet');
 const MAPA_BOTON = document.getElementById('botonMapa');
-// const cajaMet = document.querySelector("input");
+const $editarName = document.querySelectorAll('.edit');
 
 document.addEventListener('DOMContentLoaded', mostrarFichas);
 document.addEventListener('DOMContentLoaded', localStorageload);
+document.addEventListener('DOMContentLoaded', localStorageH2load);
+document.addEventListener('DOMContentLoaded', actualizarContador);
 
 document.querySelector('#formulario').addEventListener('submit', añadirMet);
 
@@ -13,6 +15,10 @@ document.querySelector('#formulario').addEventListener('submit', añadirMet);
 for(let i = 0; i < $plantillas.length; i++){
   $plantillas[i].addEventListener('click', activarPlantilla);
 }
+//Ciclo para añadir un addEventListener a la palabra 'edit'
+$editarName.forEach( (el) =>{
+  el.addEventListener('click', editarNombre);
+})
 
 //Clase para añadir listas de tareas
 class Ficha {
@@ -28,6 +34,7 @@ class Ficha {
     items.push(met);
 
     localStorage.setItem(this.name, JSON.stringify(items));
+
   }
   obtenerDatosLocalStorage() {
     let elementos;
@@ -44,15 +51,11 @@ class Ficha {
   
 }
 
-
-
 //Funciones
 
 function mostrarFichas(flecha){
 
-  for(let i = 0; i < flecha.length; i++){
-    flecha[i].classList.remove('rotacion');
-  }
+  flecha.className = 'ion-ios-arrow-up';
   
   let margin = 0;
   let zIndex = 1;
@@ -63,6 +66,52 @@ function mostrarFichas(flecha){
     margin += 80;
     zIndex ++;
   });
+}
+//Funcion para editar el nombre de la lista seleccionada
+function editarNombre(event){
+  const tituloH2 = document.getElementById(targetaId).children[0].children[0].children[0];
+  if(fichaActivada !== undefined){
+    const titulo = prompt("Escribe un título para la lista de mantenimiento..");
+    console.log(typeof titulo);
+    tituloH2.textContent = titulo;
+    tituloH2.classList.add('efectoH2');
+    guardarH2localStorage(titulo);
+  }
+  setTimeout( () =>{
+    tituloH2.classList.remove('efectoH2');
+    console.log(tituloH2);
+  }, 500);
+}
+
+//Guardar h2 en localStorage
+function guardarH2localStorage(titulo){
+  
+  localStorage.setItem('tituloH2_'+targetaId, titulo);
+}
+ 
+//Cargar títulos de localStorag al recargar la página
+function localStorageH2load(){
+  let listH2tStorage = ['tituloH2_uno', 'tituloH2_dos', 'tituloH2_tres', 'tituloH2_cuatro', 'tituloH2_cinco'];
+  listH2tStorage.forEach(function(el){
+    if(localStorage.getItem(el) !== null){
+
+      let id = el.substr( el.indexOf('_') + 1 , el.length - 1);
+      let Titulo = document.getElementById(id).children[0].children[0].children[0];
+      Titulo.textContent = localStorage.getItem(el);
+    }
+  })
+}
+//Actualizar contador de li
+function actualizarContador(){
+  const contenido = document.querySelectorAll('.frontface');
+  contenido.forEach(function(el){
+    const numeroMets = el.children.length;
+    const contador = el.parentElement.previousElementSibling.children[2].children[0];
+
+    contador.textContent = numeroMets;
+    return contador;
+
+  })
 }
 
 //Cargar los datos de localStorage
@@ -107,11 +156,9 @@ let fichaActivada, targetaId;
 function activarPlantilla(el){
 
   let elemento = el.target.parentElement.parentElement.parentElement;
-  let flecha = el.target.parentElement.children;
+  let flecha = el.target;
 
-  for(let i = 0; i < flecha.length; i++){
-    flecha[i].classList.add('rotacion');
-  }
+  flecha.classList.add('rotacion');
 
   if(fichaActivada !== undefined){
     mostrarFichas(flecha);
@@ -122,7 +169,6 @@ function activarPlantilla(el){
     targetaId = elemento.id;
     console.log("Tarjeta: " + targetaId);
     elemento.style.marginTop = '0px';
-    // let plantilla = elemento.getAttribute('data-key');
     let atributo;
     let margin = 650;
     for(let i = 0; i < $plantillas.length; i++){
@@ -186,9 +232,8 @@ function anadirInfo(barrio, met){
   if(targetaId !== undefined){
 
     let elem = baseDatos.findIndex(function(el){
-      
-      return el.alias.startsWith(barrio, 3) && el.alias.endsWith(met);
       //Devuelve el index del objeto en la variable "elem"
+      return el.alias.startsWith(barrio, 3) && el.alias.endsWith(met);
     })
 
     if(elem !== -1){
@@ -218,44 +263,46 @@ function crearLi(plantilla, parkimetro){
   // <input id="checkBox" type="checkbox">
   let html = `
   <label  id="alias">${parkimetro.alias}</label>
-  <span class="equix">X</span>
+  <i class="ion-trash-a"></i>
   `;
+  // <span class="equix">X</span>
   let li = document.createElement('li');
   li.classList.add('liMet');
   li.innerHTML = html;
   plantilla.appendChild(li);
-  
+  //Actualizar contador de li
+  actualizarContador();
   /*Se comprueba si se accede a traves de un movil para cambiar el 
   evento 'click' por el evento 'touchstart'*/
   if(isMobile.mobilecheck()){
     li.addEventListener('touchstart', function(e){
-      if(e.targetTouches[0].target.className == 'equix'){
+      if(e.targetTouches[0].target.className == 'ion-trash-a'){
         let li = e.targetTouches[0].target.parentElement;
         li.remove();
+        actualizarContador();
         borrarDatoLocalStorage(li);
       }
     });
   } else {
     li.addEventListener('click', mostrarInformacion);
   }
-
+  
 }
 
 //Mostrar información del parkímetro seleccionado
 function mostrarInformacion(e){
-  console.log(e.target.id);
-  console.log(e.target.parentElement.parentElement.id);
+
   if(e.target.parentElement.parentElement.id == 'alias' || e.target.id == 'alias'){
     console.log( e.target.textContent );
   }
-  if(e.target.textContent === 'X'){
-    const li = e.target.parentElement.parentElement.parentElement;
+  if(e.target.className === 'ion-trash-a'){
+    const li = e.target.parentElement;
 
     if(targetaId !== undefined){
       
       li.remove();
-      // console.log(e.currentTarget);
       borrarDatoLocalStorage(li);
+      actualizarContador();
     }
 
   }
