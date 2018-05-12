@@ -114,6 +114,21 @@ for(let i = 0; i < listaBarrios.length; i++){
 	selectBarrio.appendChild(option);
 }
 
+const bodyOne = document.querySelector('.bodyOne');
+
+const LINK = document.querySelector('.flecha');
+
+LINK.addEventListener('click', cambiarPantalla);
+
+
+// Función para cambiar de app
+function cambiarPantalla(){
+	window.location.href = 'links/listas.html';
+}
+
+
+
+
 
 
 

@@ -4,7 +4,42 @@ body{
   background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #904e95, #e96443); 
   background-repeat: repeat-y;
+  overflow-x: hidden;
 }
+body .mainList{
+  width: 100hv;
+  height: auto;
+}
+
+.flechaRigth{
+  display: flex;
+  z-index: 100;
+  position: absolute;
+  top: 42px;
+  right: -2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  background: rgba(0,0,0,.5);
+  animation: 1.4s translate 1;
+}
+.flechaRigth ion-icon{
+  color: white;
+  font-size: 1.6em;
+  margin-left: 4px;
+  margin-top: 4px;
+}
+@keyframes translate{
+  0%, 60%{
+    transform: translateY(-120px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
+
 .header > header{
   padding-bottom: 4px;
   padding-top: 7px;
@@ -65,6 +100,21 @@ body mainTwo{
   text-align: left;
   transition-duration: .3s;
 }
+.lista:nth-of-type(1) header{
+  color: #377be1;
+}
+.lista:nth-of-type(2) header{
+  color: #6d3671;
+}
+.lista:nth-of-type(3) header{
+  color: #3da55e;
+}
+.lista:nth-of-type(4) header{
+  color: #c1a754;
+}
+.lista:nth-of-type(5) header{
+  color: #d56767;
+}
 .lista > header{
   display: flex;
   flex-direction: row;
@@ -77,6 +127,7 @@ body mainTwo{
   height: 60px;
   font-size: .8em;
   padding-top: 15px;
+  margin-left: 15px;
   text-align: center;
 }
 .lista header .contador{
@@ -165,11 +216,11 @@ body mainTwo{
   padding: 0em 1.2em;
   background: rgb(96, 165, 203);
   background: -webkit-gradient( linear, left top, left bottom, 
-    color-stop(0.05, rgb(188, 247, 129)), 
-    color-stop(1, rgb(245, 203, 64)) );
+    color-stop(0.05, rgb(108, 210, 233)), 
+    color-stop(1, rgb(181, 218, 121)) );
   background: -moz-linear-gradient( center top, 
-    rgb(188, 247, 129) 5%, 
-    rgb(242, 198, 54) 100% );
+    rgb(108, 210, 233) 5%, 
+    rgb(181, 218, 121) 100% );
 }
 #checkBox{
   outline: none;
@@ -187,6 +238,13 @@ body mainTwo{
   padding-top: .6em;
   text-align: center;
   font-size: 1em;
+  color: rgb(8, 8, 7);
+}
+.liMet > ion-icon{
+  width: 20%;
+  padding-top: .25em;
+  text-align: center;
+  font-size: 1.5em;
   color: rgb(8, 8, 7);
 }
 .liMet > i{

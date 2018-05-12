@@ -72,10 +72,12 @@ function editarNombre(event){
   const tituloH2 = document.getElementById(targetaId).children[0].children[0].children[0];
   if(fichaActivada !== undefined){
     const titulo = prompt("Escribe un título para la lista de mantenimiento..");
-    console.log(typeof titulo);
-    tituloH2.textContent = titulo;
-    tituloH2.classList.add('efectoH2');
-    guardarH2localStorage(titulo);
+    console.log(titulo.length);
+    if(titulo !== null && titulo.length > 0){
+      tituloH2.textContent = titulo;
+      tituloH2.classList.add('efectoH2');
+      guardarH2localStorage(titulo);
+    }
   }
   setTimeout( () =>{
     tituloH2.classList.remove('efectoH2');
@@ -215,8 +217,6 @@ function añadirMet(e){
 		}else if (met.length == 3) {
 			cajaMet.style.borderColor = '';
       met = 0 + cajaMet.value;
-			cajaMet.style.borderColor = '';
-      met = 0 + cajaMet.value;
       
       anadirInfo(barrioSeleccionado, met);
 		}else if(met.length === 4){
@@ -339,3 +339,10 @@ for(let i = 0; i < listaBarrios.length; i++){
 	selectBarrio.appendChild(option);
 }
 
+const btnMap = document.querySelector('.flechaRigth');
+
+btnMap.addEventListener('click', linkIndex);
+
+function linkIndex(){
+  window.location.href = '../index.html';
+}

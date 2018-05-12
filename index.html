@@ -13,51 +13,53 @@
   <!-- <script src="js/data_mets.js"></script> -->
   <script src="js/baseDatos.js"></script>
 </head>
-<body>
-	<div class="header">
-		<header>
-			<div class="formulario">
-				<form action="#" id="formulario">
-					<section class="for">
-						<div class="barrio">
-							<label for="barrio">Barrio:</label>
-              <select class="form-control" id="barrio">
-              </select>
-						</div>
-						<div class="met">
-							<label for="met">Parkímetro:</label><br>
-							<input name="met" id="met" class="inputMet" type="number" placeholder="Parkímetro" autocomplete="off"><br>
-						</div>
-						<div class="botonForm">
-							<button id="botonMapa" type="submit"><i class="ion-android-search" ></i> </button>
-						</div>
-					</section>
-				</form>  
-			</div>
-			<div class="spinner"></div>
-		</header>
-	</div>
-	<div class="main">
-		<div class="seccion" >
+<body class="bodyOne" >
+		<div class="header">
+			<header>
+				<div class="formulario">
+					<form action="#" id="formulario">
+						<section class="for">
+							<div class="barrio">
+								<label for="barrio">Barrio:</label>
+								<select class="form-control" id="barrio">
+								</select>
+							</div>
+							<div class="met">
+								<label for="met">Parkímetro:</label><br>
+								<input name="met" id="met" class="inputMet" type="number" placeholder="Parkímetro" autocomplete="off"><br>
+							</div>
+							<div class="botonForm">
+								<button id="botonMapa" type="submit">
+									<ion-icon name="search"></ion-icon>
+								</button>
+							</div>
+						</section>
+					</form>  
+				</div>
+				<div class="spinner"></div>
+			</header>
+		</div>
+		<div class="main">
 			<div class="cajaFlecha">
 				<div class="flecha">
-						<i class="fas fa-angle-double-right"></i>
+						<ion-icon name="list"></ion-icon>
+						<!-- <i class="fas fa-angle-double-right"></i> -->
 				</div>
 			</div>
+			<section class="cajaInfo">
+				<div class="info"></div>
+			</section>
+			<div id="mapa">
+				<div id="map"></div>
 			</div>
-		<section class="cajaInfo">
-			<div class="info"></div>
-		</section>
-		<div id="mapa">
-			<div id="map"></div>
 		</div>
-	</div>
-	<footer>
-		<div class="btn">
-			<button id="posicionBtn" type="button"> <i class="fas fa-car"></i> <p>Cómo llegar</p> </button>
-		</div>
-	</footer>
-	
+		<footer>
+			<div class="btn">
+				<button id="posicionBtn" type="button"> <i class="fas fa-car"></i> <p>Cómo llegar</p> </button>
+			</div>
+		</footer>
+	<script  src="https://unpkg.com/ionicons@4.0.0/dist/ionicons.js" ></script>
+
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDX2HNbva5rTOcAvc3TabY55P4Tk1LXIlY"></script>
   <script src="js/mobile.js"></script>
   <script src="js/MAP.js"></script>

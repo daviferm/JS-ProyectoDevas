@@ -1,4 +1,7 @@
 
+
+
+
 //Detectar dispositimos móviles
 
 var isMobile = {
