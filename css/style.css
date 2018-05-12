@@ -130,7 +130,7 @@ body.ocultar{
 .flecha{
   display: flex;
   position: absolute;
-  z-index: 200;
+  z-index: 400;
   top: 50px;
   left: 90%;
   width: 35px;
