@@ -185,10 +185,8 @@ body mainTwo{
   background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
 }
 .lista .content .backface{
-  background: blue;
-  color: white;
-  text-align: center;
-  transform: rotateY(180deg);
+  display: none;
+  background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
 }
 .lista .content .frontface{
   /* background: linear-gradient(to right, #904e95, #e96443);  */
@@ -197,7 +195,58 @@ body mainTwo{
 .lista .content > p{
   margin-left: 20px;
 }
-
+.metBackface{
+  border: 1px solid black;
+  width: 90%;
+  margin: 20px 5%;
+  padding: 1em 0;
+  font-size: 1.1em;
+  text-align: left;
+  border-radius: 15px;
+  background: linear-gradient(to left, #4ca27a, #306893);
+  color: rgba(255, 255, 255, 0.879);
+}
+.metBackface p{
+  margin-left: 1.2em;
+}
+.btnInfo{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(to top, #6a7072, #afb3b1);
+  color: rgba(255, 255, 255, 0.879);
+}
+.divBtnMap{
+  position: relative;
+  width: 120px;
+  height: 45px;
+  width: 90%;
+  margin-left: 5%;
+}
+.btnMaps{
+  position: absolute;
+  right: 0%;
+  display: inline-block;
+  margin: 5px;
+  width: 120px;
+  height: 35px;
+  background: rgb(69, 124, 206);
+  border-radius: 12px;
+  /* border-top-right-radius: 15% 50%;
+  border-bottom-right-radius: 15% 50%;
+  border-bottom-left-radius: 15% 50%;
+  border-top-left-radius: 15% 50%; */
+  outline: none;
+  cursor: pointer;
+  color: white;
+}
+.btnMaps p{
+  font-size: .8em;
+  margin: 0px;
+}
 
 
 .liMet{
@@ -228,7 +277,7 @@ body mainTwo{
 }
 .liMet label{
   cursor: pointer;
-  width: 70%;
+  /* width: 70%; */
   height: 76%;
   font-size: 1.5em;
   padding: .2em 0px;

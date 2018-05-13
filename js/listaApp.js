@@ -72,7 +72,7 @@ function editarNombre(event){
   const tituloH2 = document.getElementById(targetaId).children[0].children[0].children[0];
   if(fichaActivada !== undefined){
     const titulo = prompt("Escribe un título para la lista de mantenimiento..");
-    console.log(titulo.length);
+
     if(titulo !== null && titulo.length > 0){
       tituloH2.textContent = titulo;
       tituloH2.classList.add('efectoH2');
@@ -81,7 +81,6 @@ function editarNombre(event){
   }
   setTimeout( () =>{
     tituloH2.classList.remove('efectoH2');
-    console.log(tituloH2);
   }, 500);
 }
 
@@ -169,7 +168,6 @@ function activarPlantilla(el){
     console.log("Tarjeta: " + targetaId);
   }else{
     targetaId = elemento.id;
-    console.log("Tarjeta: " + targetaId);
     elemento.style.marginTop = '0px';
     let atributo;
     let margin = 650;
@@ -265,7 +263,6 @@ function crearLi(plantilla, parkimetro){
   <label  id="alias">${parkimetro.alias}</label>
   <i class="ion-trash-a"></i>
   `;
-  // <span class="equix">X</span>
   let li = document.createElement('li');
   li.classList.add('liMet');
   li.innerHTML = html;
@@ -282,6 +279,10 @@ function crearLi(plantilla, parkimetro){
         actualizarContador();
         borrarDatoLocalStorage(li);
       }
+      if(e.targetTouches[0].target.textContent == parkimetro.alias){
+
+        mostrarInfoMet(parkimetro);
+      }
     });
   } else {
     li.addEventListener('click', mostrarInformacion);
@@ -289,11 +290,15 @@ function crearLi(plantilla, parkimetro){
   
 }
 
-//Mostrar información del parkímetro seleccionado
+//Mostrar información del parkímetro seleccionado en ordenadores
 function mostrarInformacion(e){
 
   if(e.target.parentElement.parentElement.id == 'alias' || e.target.id == 'alias'){
-    console.log( e.target.textContent );
+    const alias = e.target.innerHTML;
+    let objMet = baseDatos.find(function(el){
+      return el.alias == alias;
+    })
+    mostrarInfoMet(objMet);
   }
   if(e.target.className === 'ion-trash-a'){
     const li = e.target.parentElement;
@@ -307,6 +312,60 @@ function mostrarInformacion(e){
 
   }
 }
+
+//Funcion para mostrar la información del parkímetro seleccionado
+function mostrarInfoMet(objMet){
+  const frontface = document.getElementById(targetaId).children[1].children[0];
+  const backface = document.getElementById(targetaId).children[1].children[1];
+
+   let html = `
+    <article class="metBackface">
+      <p>Nº de Parquímetro: ${objMet.alias}</p>
+      <p>Barrio: ${objMet.barrio}</p>
+      <p>Direcctión: ${objMet.direccion}</p>
+      <p>Tarifa: ${objMet.tarifa}</p>
+    </article>
+    <div class="divBtnMap">
+      <button type="button" class="btnMaps"><p>Como llegar</p></button>
+    </div>
+    <button type="button" class="btnInfo">Salir</button>
+  `;
+  backface.innerHTML = html;
+  
+  let btnInfo = document.querySelector('.btnInfo');
+  let btnMapa = document.querySelector('.btnMaps');
+  let latitud = objMet.latitud;
+  let longitud = objMet.longitud;
+
+  backface.style.display = 'block';
+  frontface.style.display = 'none';
+
+  btnMapa.addEventListener('click', function(){
+
+    if ((navigator.platform.indexOf("iPhone") != -1) || 
+     (navigator.platform.indexOf("iPod") != -1) || 
+     (navigator.platform.indexOf("iPad") != -1)){
+    
+      
+       window.open("maps://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
+     } else {
+      
+      window.open("https://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");	
+     }
+     
+  })
+  btnInfo.addEventListener('click', function(){
+
+    backface.style.display = 'none';
+    frontface.style.display = 'block';
+
+  })
+}
+//Función para abrir la app de mapas dependiendo del dispositivo
+function comoLlegarMap(latlng){
+
+}
+
 
 //Comprobar si el parkímetro ha sido añadido
 function comprobarAlias(el){
