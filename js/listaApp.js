@@ -261,7 +261,7 @@ function crearLi(plantilla, parkimetro){
   // <input id="checkBox" type="checkbox">
   let html = `
   <label  id="alias">${parkimetro.alias}</label>
-  <i class="ion-trash-a"></i>
+  <ion-icon id="borrar" name="trash"></ion-icon>
   `;
   let li = document.createElement('li');
   li.classList.add('liMet');
@@ -273,8 +273,9 @@ function crearLi(plantilla, parkimetro){
   evento 'click' por el evento 'touchstart'*/
   if(isMobile.mobilecheck()){
     li.addEventListener('touchstart', function(e){
-      if(e.targetTouches[0].target.className == 'ion-trash-a'){
-        let li = e.targetTouches[0].target.parentElement;
+      
+      if(e.targetTouches[0].target.parentElement.parentElement.parentElement.id == 'borrar'){
+        let li = e.targetTouches[0].target.parentElement.parentElement.parentElement.parentElement;
         li.remove();
         actualizarContador();
         borrarDatoLocalStorage(li);
@@ -292,7 +293,6 @@ function crearLi(plantilla, parkimetro){
 
 //Mostrar información del parkímetro seleccionado en ordenadores
 function mostrarInformacion(e){
-
   if(e.target.parentElement.parentElement.id == 'alias' || e.target.id == 'alias'){
     const alias = e.target.innerHTML;
     let objMet = baseDatos.find(function(el){
@@ -300,8 +300,8 @@ function mostrarInformacion(e){
     })
     mostrarInfoMet(objMet);
   }
-  if(e.target.className === 'ion-trash-a'){
-    const li = e.target.parentElement;
+  if(e.target.parentElement.parentElement.parentElement.id === 'borrar'){
+    const li = e.target.parentElement.parentElement.parentElement.parentElement;
 
     if(targetaId !== undefined){
       
@@ -320,16 +320,18 @@ function mostrarInfoMet(objMet){
 
    let html = `
     <article class="metBackface">
-      <p>Nº de Parquímetro: ${objMet.alias}</p>
-      <p>Barrio: ${objMet.barrio}</p>
-      <p>Direcctión: ${objMet.direccion}</p>
-      <p>Tarifa: ${objMet.tarifa}</p>
+      <p>${objMet.alias}</p>
+      <p>BARRIO: ${objMet.barrio}</p>
+      <p>DIRECCIÓN: ${objMet.direccion}</p>
+      <p>FABRICANTE: ${objMet.fabricante}</p>
+      <p>TARIFA: ${objMet.tarifa}</p>
     </article>
     <div class="divBtnMap">
-      <button type="button" class="btnMaps"><p>Como llegar</p></button>
+      <button type="button" class="btnMaps"><ion-icon name="car"></ion-icon><p>Como llegar</p></button>
     </div>
-    <button type="button" class="btnInfo">Salir</button>
+    <button type="button" class="btnInfo"> Salir </button>
   `;
+  
   backface.innerHTML = html;
   
   let btnInfo = document.querySelector('.btnInfo');
@@ -339,7 +341,8 @@ function mostrarInfoMet(objMet){
 
   backface.style.display = 'block';
   frontface.style.display = 'none';
-
+  // window.scrollTo( 0, 800 );
+  
   btnMapa.addEventListener('click', function(){
 
     if ((navigator.platform.indexOf("iPhone") != -1) || 

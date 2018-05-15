@@ -5,6 +5,7 @@ body{
   background: linear-gradient(to right, #904e95, #e96443); 
   background-repeat: repeat-y;
   overflow-x: hidden;
+  font-family: 'Roboto Slab', serif;
 }
 body .mainList{
   width: 100hv;
@@ -183,13 +184,13 @@ body mainTwo{
   width: 100%;
   height: 100%;
   background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
+  animation: .8s visibilidad 1;
 }
 .lista .content .backface{
   display: none;
   background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
 }
 .lista .content .frontface{
-  /* background: linear-gradient(to right, #904e95, #e96443);  */
   z-index: 40;
 }
 .lista .content > p{
@@ -197,55 +198,81 @@ body mainTwo{
 }
 .metBackface{
   border: 1px solid black;
-  width: 90%;
-  margin: 20px 5%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 90%;
   padding: 1em 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
   text-align: left;
   border-radius: 15px;
   background: linear-gradient(to left, #4ca27a, #306893);
   color: rgba(255, 255, 255, 0.879);
 }
+@keyframes visibilidad{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .metBackface p{
-  margin-left: 1.2em;
+  margin-left: 2.5em;
+}
+.metBackface > p:nth-child(1){
+  text-align: center;
+  margin: 0px;
+  padding: .3em 0em .5em 0em;
+  font-size: 1.2em;
+  background: linear-gradient(to top, #2b3731, #a3afb8);
+}
+.metBackface > p:nth-child(2){
+  margin-top: 50px;
 }
 .btnInfo{
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 20px;
-  height: 34px;
+  position: absolute;
+  bottom: 34vh;
+  width: 55%;
+  height: 40px;
+  right: 20px;
   border-radius: 10px;
   cursor: pointer;
+  font-size: 1.4em;
   background: linear-gradient(to top, #6a7072, #afb3b1);
   color: rgba(255, 255, 255, 0.879);
 }
 .divBtnMap{
-  position: relative;
-  width: 120px;
+  position: absolute;
+  bottom: 41vh;
   height: 45px;
-  width: 90%;
-  margin-left: 5%;
+  width: 55%;
+  right: 20px;
 }
 .btnMaps{
-  position: absolute;
+  position: relative;
   right: 0%;
-  display: inline-block;
-  margin: 5px;
-  width: 120px;
+  display: flex;
+  justify-content: center;
+  margin: 0px 3%;
+  width: 94%;
   height: 35px;
   background: rgb(69, 124, 206);
   border-radius: 12px;
-  /* border-top-right-radius: 15% 50%;
-  border-bottom-right-radius: 15% 50%;
-  border-bottom-left-radius: 15% 50%;
-  border-top-left-radius: 15% 50%; */
   outline: none;
   cursor: pointer;
   color: white;
 }
 .btnMaps p{
-  font-size: .8em;
-  margin: 0px;
+  display: inline-block;
+  position: relative;
+  font-size: .9em;
+  margin: 8px;
+}
+.btnMaps ion-icon{
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 3px;
 }
 
 
@@ -271,39 +298,26 @@ body mainTwo{
     rgb(108, 210, 233) 5%, 
     rgb(181, 218, 121) 100% );
 }
-#checkBox{
-  outline: none;
-  margin-top: 8px;
-}
+
 .liMet label{
   cursor: pointer;
   /* width: 70%; */
   height: 76%;
   font-size: 1.5em;
   padding: .2em 0px;
-}
-.liMet span{
-  width: 20%;
-  padding-top: .6em;
-  text-align: center;
-  font-size: 1em;
-  color: rgb(8, 8, 7);
-}
-.liMet > ion-icon{
-  width: 20%;
-  padding-top: .25em;
-  text-align: center;
-  font-size: 1.5em;
-  color: rgb(8, 8, 7);
-}
-.liMet > i{
-  width: 20%;
-  padding-top: .25em;
-  text-align: center;
-  font-size: 1.5em;
-  color: rgb(8, 8, 7);
+  margin-left: -5px;
 }
 
+.liMet > ion-icon{
+  width: 20%;
+  padding-top: .2em;
+  margin-right: -20px;
+  font-size: 1.6em;
+  color: rgb(8, 8, 7);
+}
+.liMet .icon-inner{
+  margin-left: 20%;
+}
 
 @media screen and (min-width: 480px){
   header, .plantillas{
