@@ -269,25 +269,27 @@ function crearLi(plantilla, parkimetro){
   plantilla.appendChild(li);
   //Actualizar contador de li
   actualizarContador();
+  li.addEventListener('click', mostrarInformacion);
+
   /*Se comprueba si se accede a traves de un movil para cambiar el 
   evento 'click' por el evento 'touchstart'*/
-  if(isMobile.mobilecheck()){
-    li.addEventListener('touchstart', function(e){
+  // if(isMobile.mobilecheck()){
+  //   li.addEventListener('touchstart', function(e){
       
-      if(e.targetTouches[0].target.parentElement.parentElement.parentElement.id == 'borrar'){
-        let li = e.targetTouches[0].target.parentElement.parentElement.parentElement.parentElement;
-        li.remove();
-        actualizarContador();
-        borrarDatoLocalStorage(li);
-      }
-      if(e.targetTouches[0].target.textContent == parkimetro.alias){
+  //     if(e.targetTouches[0].target.parentElement.parentElement.parentElement.id == 'borrar'){
+  //       let li = e.targetTouches[0].target.parentElement.parentElement.parentElement.parentElement;
+  //       li.remove();
+  //       actualizarContador();
+  //       borrarDatoLocalStorage(li);
+  //     }
+  //     if(e.targetTouches[0].target.textContent == parkimetro.alias){
 
-        mostrarInfoMet(parkimetro);
-      }
-    });
-  } else {
-    li.addEventListener('click', mostrarInformacion);
-  }
+  //       mostrarInfoMet(parkimetro);
+  //     }
+  //   });
+  // } else {
+  //   li.addEventListener('click', mostrarInformacion);
+  // }
   
 }
 
