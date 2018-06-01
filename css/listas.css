@@ -1,326 +1,426 @@
-
-body{
-  background: #e96443;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #904e95, #e96443); 
-  background-repeat: repeat-y;
-  overflow-x: hidden;
-  font-family: 'Roboto Slab', serif;
-}
-body .mainList{
-  width: 100hv;
-  height: auto;
+body {
+    background: #e96443;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #904e95, #e96443);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #904e95, #e96443);
+    background-repeat: repeat-y;
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', serif;
 }
 
-.flechaRigth{
-  display: flex;
-  z-index: 100;
-  position: absolute;
-  top: 42px;
-  right: -2px;
-  width: 35px;
-  height: 35px;
-  border-radius: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-  background: rgba(0,0,0,.5);
-  animation: 1.4s translate 1;
-}
-.flechaRigth ion-icon{
-  color: white;
-  font-size: 1.6em;
-  margin-left: 4px;
-  margin-top: 4px;
-}
-@keyframes translate{
-  0%, 60%{
-    transform: translateY(-120px);
-  }
-  100%{
-    transform: translateX(0px);
-  }
+body .mainList {
+    width: 100hv;
+    height: auto;
 }
 
-.header > header{
-  padding-bottom: 4px;
-  padding-top: 7px;
-  background: rgb(26, 91, 120);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  margin-bottom: 2px;
-}
-header .titulo h2{
-  position: relative;
-  margin-top: 10px;
-}
-.efectoH2{
-  animation: .8s titulo 1;
-}
-@keyframes titulo{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-body mainTwo{
-  padding-bottom: 10px;
-  width: 100%;
-  height: 40px;
-  text-align: center;
-  /* background-color: #2381AA; */
-  font-size: 1em;
-  z-index: 100;
-}
-.header, .contenido{
-  display: inline-flex;
-  justify-content: center;
-  width: 100%;
+.flechaRigth {
+    display: flex;
+    z-index: 100;
+    position: absolute;
+    top: 42px;
+    right: -2px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, .5);
+    animation: 1.4s translate 1;
 }
 
-.plantillas{
-  position: relative;
-  border: 0px solid black;
-  width: 96%;
-  height: 95vh;
-  border-top-left-radius: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.lista{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-top: 1px solid gray;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  box-shadow: 0px -1px 2px gray;
-  top: 0px;
-  background: rgb(247, 241, 241);
-  text-align: left;
-  transition-duration: .3s;
-}
-.lista:nth-of-type(1) header{
-  color: #377be1;
-}
-.lista:nth-of-type(2) header{
-  color: #6d3671;
-}
-.lista:nth-of-type(3) header{
-  color: #3da55e;
-}
-.lista:nth-of-type(4) header{
-  color: #c1a754;
-}
-.lista:nth-of-type(5) header{
-  color: #d56767;
-}
-.lista > header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.flechaRigth ion-icon {
+    color: white;
+    font-size: 1.6em;
+    margin-left: 4px;
+    margin-top: 4px;
 }
 
-
-.lista  header .titulo{
-  width: 45%;
-  height: 60px;
-  font-size: .8em;
-  padding-top: 15px;
-  margin-left: 15px;
-  text-align: center;
-}
-.lista header .contador{
-  width: 15%;
-  height: 60px;
-  display: block;
-  text-align: center;
-  padding-top: 5px;
-}
-.lista .contador p{
-  margin: 0px;
-}
-.lista .contador p:nth-of-type(1){
-  font-size: 1.8em;
-}
-.lista .contador p:nth-of-type(2){
-  font-size: .8em;
-  cursor: pointer;
+@keyframes translate {
+    0%,
+    60% {
+        transform: translateY(-120px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
 
-.lista .flechaUp{
-  position: relative;
-  width: 40%;
-  height: 60px;
-  cursor: pointer;
-}
-.lista .flechaUp i{
-  position: absolute;
-  width: 100%;
-  height: 50px;
-  font-size: 3em;
-  text-align: center;
-  top: 0px;
-  color: black;
-  transition-duration: .2s;
-  transform-origin: center 55%;
-  outline: none;
-}
-.rotacion{
-  transform: rotateX(180deg);
+.header>header {
+    padding-bottom: 4px;
+    padding-top: 7px;
+    background: rgb(26, 91, 120);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 2px;
 }
 
-.lista .content{
-  position: relative;
-  height: 100%;
-  overflow: scroll;
+header .titulo h2 {
+    position: relative;
+    margin-top: 10px;
+}
+
+.efectoH2 {
+    animation: .8s titulo 1;
+}
+
+@keyframes titulo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body mainTwo {
+    padding-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    /* background-color: #2381AA; */
+    font-size: 1em;
+    z-index: 100;
+}
+
+.header,
+.contenido {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.plantillas {
+    position: relative;
+    border: 0px solid black;
+    width: 96%;
+    height: 95vh;
+    border-top-left-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lista {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid gray;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -1px 2px gray;
+    top: 0px;
+    background: rgb(247, 241, 241);
+    text-align: left;
+    transition-duration: .3s;
+}
+
+.lista:nth-of-type(1) header {
+    color: #377be1;
+}
+
+.lista:nth-of-type(2) header {
+    color: #6d3671;
+}
+
+.lista:nth-of-type(3) header {
+    color: #3da55e;
+}
+
+.lista:nth-of-type(4) header {
+    color: #c1a754;
+}
+
+.lista:nth-of-type(5) header {
+    color: #d56767;
+}
+
+.lista>header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.lista header .titulo {
+    width: 45%;
+    height: 60px;
+    font-size: .8em;
+    padding-top: 15px;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.lista header .contador {
+    width: 15%;
+    height: 60px;
+    display: block;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.lista .contador p {
+    margin: 0px;
+}
+
+.lista .contador p:nth-of-type(1) {
+    font-size: 1.8em;
+}
+
+.lista .contador p:nth-of-type(2) {
+    font-size: .8em;
+    cursor: pointer;
+}
+
+.lista .flechaUp {
+    position: relative;
+    width: 40%;
+    height: 60px;
+    cursor: pointer;
+}
+
+.lista .flechaUp i {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    font-size: 3em;
+    text-align: center;
+    top: 0px;
+    color: black;
+    transition-duration: .2s;
+    transform-origin: center 55%;
+    outline: none;
+}
+
+.rotacion {
+    transform: rotateX(180deg);
+}
+
+.lista .content {
+    position: relative;
+    height: 100%;
+    overflow: scroll;
 }
 
 .lista .content .backface,
-.lista .content .frontface{
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
-  animation: .8s visibilidad 1;
+.lista .content .frontface {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
+    animation: .8s visibilidad 1;
 }
-.lista .content .backface{
-  display: none;
-  background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
+
+.lista .content .backface {
+    display: none;
+    background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
 }
-.lista .content .frontface{
-  z-index: 40;
+
+.lista .content .frontface {
+    z-index: 40;
 }
-.lista .content > p{
-  margin-left: 20px;
+
+.lista .content>p {
+    margin-left: 20px;
 }
-.metBackface{
-  border: 1px solid black;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  height: 90%;
-  padding: 1em 0;
-  font-size: 1.2em;
-  text-align: left;
-  border-radius: 15px;
-  background: linear-gradient(to left, #4ca27a, #306893);
-  color: rgba(255, 255, 255, 0.879);
+
+.metBackface {
+    border: 1px solid black;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 90%;
+    padding: 1em 0;
+    font-size: 1.2em;
+    text-align: left;
+    border-radius: 15px;
+    background: linear-gradient(to left, #4ca27a, #306893);
+    color: rgba(255, 255, 255, 0.879);
 }
-@keyframes visibilidad{
-  from {
-    opacity: 0;
-  }
-  to {
+
+@keyframes visibilidad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.metBackface p {
+    margin-left: 2.5em;
+}
+
+.metBackface>p:nth-child(1) {
+    text-align: center;
+    margin: 0px;
+    padding: .3em 0em .5em 0em;
+    font-size: 1.2em;
+    background: linear-gradient(to top, #2b3731, #a3afb8);
+}
+
+.metBackface>p:nth-child(2) {
+    margin-top: 25px;
+}
+
+.btnInfo {
+    position: absolute;
+    bottom: 34vh;
+    width: 90%;
+    height: 40px;
+    margin-left: 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.4em;
+    background: linear-gradient(to top, #6a7072, #afb3b1);
+    color: rgba(255, 255, 255, 0.879);
+}
+
+.divBtnMap {
+    position: absolute;
+    bottom: 41vh;
+    height: 45px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.btnMaps {
+    position: relative;
+    right: 0%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 3%;
+    width: 94%;
+    height: 35px;
+    background: rgb(69, 124, 206);
+    border-radius: 12px;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
+
+.btnMaps p {
+    display: inline-block;
+    position: relative;
+    font-size: .9em;
+    margin: 8px;
+}
+
+.btnMaps ion-icon {
+    display: inline-block;
+    font-size: 1.5em;
+    margin-top: 3px;
+}
+
+.liMet {
+    position: relative;
+    top: 0px;
+    height: 35px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 5px;
+    padding: 0em 1.2em;
+    background: rgb(96, 165, 203);
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, rgb(108, 210, 233)), color-stop(1, rgb(181, 218, 121)));
+    background: -moz-linear-gradient( center top, rgb(108, 210, 233) 5%, rgb(181, 218, 121) 100%);
+}
+
+.liMet label {
+    cursor: pointer;
+    height: 76%;
+    font-size: 1.5em;
+    padding: .2em 0px;
+    margin-left: 15px;
+}
+
+.liMet>ion-icon {
+    width: 20%;
+    padding-top: .2em;
+    margin-right: -20px;
+    font-size: 1.6em;
+    color: rgb(8, 8, 7);
+}
+
+.liMet .icon-inner {
+    margin-left: 20%;
+}
+
+article {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, .5);
+    z-index: 300;
     opacity: 1;
-  }
-}
-.metBackface p{
-  margin-left: 2.5em;
-}
-.metBackface > p:nth-child(1){
-  text-align: center;
-  margin: 0px;
-  padding: .3em 0em .5em 0em;
-  font-size: 1.2em;
-  background: linear-gradient(to top, #2b3731, #a3afb8);
-}
-.metBackface > p:nth-child(2){
-  margin-top: 25px;
-}
-.btnInfo{
-  position: absolute;
-  bottom: 34vh;
-  width: 90%;
-  height: 40px;
-  margin-left: 5%;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 1.4em;
-  background: linear-gradient(to top, #6a7072, #afb3b1);
-  color: rgba(255, 255, 255, 0.879);
-}
-.divBtnMap{
-  position: absolute;
-  bottom: 41vh;
-  height: 45px;
-  width: 90%;
-  margin-left: 5%;
-}
-.btnMaps{
-  position: relative;
-  right: 0%;
-  display: flex;
-  justify-content: center;
-  margin: 0px 3%;
-  width: 94%;
-  height: 35px;
-  background: rgb(69, 124, 206);
-  border-radius: 12px;
-  outline: none;
-  cursor: pointer;
-  color: white;
-}
-.btnMaps p{
-  display: inline-block;
-  position: relative;
-  font-size: .9em;
-  margin: 8px;
-}
-.btnMaps ion-icon{
-  display: inline-block;
-  font-size: 1.5em;
-  margin-top: 3px;
 }
 
-
-.liMet{
-  position: relative;
-  top: 0px;
-  height: 35px;
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  border: 1px solid black;
-  border-radius: 6px;
-  margin: 5px;
-  padding: 0em 1.2em;
-  background: rgb(96, 165, 203);
-  background: -webkit-gradient( linear, left top, left bottom, 
-    color-stop(0.05, rgb(108, 210, 233)), 
-    color-stop(1, rgb(181, 218, 121)) );
-  background: -moz-linear-gradient( center top, 
-    rgb(108, 210, 233) 5%, 
-    rgb(181, 218, 121) 100% );
+article>div {
+    position: relative;
+    text-align: center;
+    top: 100px;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    display: flex;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    z-index: 310;
+    animation: .8s confirm 1;
 }
 
-.liMet label{
-  cursor: pointer;
-  height: 76%;
-  font-size: 1.5em;
-  padding: .2em 0px;
-  margin-left: 15px;
+@keyframes confirm {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-.liMet > ion-icon{
-  width: 20%;
-  padding-top: .2em;
-  margin-right: -20px;
-  font-size: 1.6em;
-  color: rgb(8, 8, 7);
-}
-.liMet .icon-inner{
-  margin-left: 20%;
+article>p {
+    display: block;
 }
 
-@media screen and (min-width: 480px){
-  header, .plantillas{
-    max-width: 480px;
-  }
+article>div>footer {
+    position: absolute;
+    bottom: 0%;
+    width: 90%;
+    margin-left: 5%;
+}
 
+article .btn {
+    position: relative;
+    display: inline-block;
+    margin: 0px 15px 20px 15px;
+    margin-top: 24px;
+    margin-left: 25px;
+    padding-top: 4px;
+    width: 55px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #66CC99;
+    cursor: pointer;
+    color: white;
+    font-size: .8em;
+    outline: none;
+    box-shadow: 2px 2px 10px gray;
+}
+
+article .cancel {
+    width: 100px;
+    background-color: rgb(204, 102, 117);
+}
+
+@media screen and (min-width: 480px) {
+    header,
+    .plantillas {
+        max-width: 480px;
+    }
 }
