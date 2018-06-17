@@ -34,7 +34,6 @@ class UI {
     }
 
     mostrarPin(latlng, img) {
-        let image = '../img/parkare.png';
         let marcador = new google.maps.Marker({
             position: latlng,
             map: this.mapa,
