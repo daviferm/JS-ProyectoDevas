@@ -3,6 +3,10 @@ const $plantillas = document.querySelectorAll('.flechaUp');
 const cajaMet = document.querySelector('.inputMet');
 const MAPA_BOTON = document.getElementById('botonMapa');
 const $editarName = document.querySelectorAll('.edit');
+const MOSTRAR_MAP = document.querySelectorAll('.posicionBtn');
+const MAPA = document.getElementById('map');
+const cerrarMapa = document.querySelector('.cerrarMapa');
+
 
 //EventListenner
 document.addEventListener('DOMContentLoaded', mostrarFichas);
@@ -12,6 +16,11 @@ document.addEventListener('DOMContentLoaded', actualizarContador);
 
 document.querySelector('#formulario').addEventListener('submit', añadirMet);
 
+for (let i = 0; i < MOSTRAR_MAP.length; i++) {
+    MOSTRAR_MAP[i].addEventListener('click', mostrarPines);
+}
+
+cerrarMapa.addEventListener('click', ocultarMapa);
 //Ciclo para activar las plantillas
 for (let i = 0; i < $plantillas.length; i++) {
     $plantillas[i].addEventListener('click', activarPlantilla);
@@ -158,19 +167,24 @@ let fichaActivada, targetaId;
 
 function activarPlantilla(el) {
 
+
     let elemento = el.target.parentElement.parentElement.parentElement;
     let flecha = el.target;
 
     flecha.classList.add('rotacion');
 
     if (fichaActivada !== undefined) {
+        console.log("Tarjeta: " + targetaId);
+        document.getElementById(targetaId).children[2].classList.remove('btnFooter');
         mostrarFichas(flecha);
         fichaActivada = undefined;
         targetaId = undefined;
-        console.log("Tarjeta: " + targetaId);
+
     } else {
         targetaId = elemento.id;
         elemento.style.marginTop = '0px';
+
+        // console.log(elemento.children[2]);
         let atributo;
         let margin = 650;
         for (let i = 0; i < $plantillas.length; i++) {
@@ -182,7 +196,11 @@ function activarPlantilla(el) {
         }
         // zIndex(el);
         fichaActivada = true;
+        document.getElementById(targetaId).children[2].classList.add('btnFooter');
     }
+
+
+
 }
 /*
 function zIndex(el) {
@@ -300,6 +318,52 @@ function crearLi(plantilla, parkimetro) {
 
 }
 
+//Mostrar mapa con los parkímetros seleccionados
+function mostrarPines(e) {
+    let elem = document.getElementById(targetaId).children[1].children[0].children;
+    let elementos = [];
+
+    for (let i = 0; i < elem.length; i++) {
+
+        let numeroMet = elem[i].textContent.trim();
+
+        const el = baseDatos.find(function(valor) {
+            return valor.alias === numeroMet;
+        })
+
+        elementos.push(el);
+    }
+
+    let latitud = Number(elementos[0].latitud);
+    let longitud = Number(elementos[0].longitud);
+
+    let latlng = { lat: latitud, lng: longitud };
+    let zoon = 15;
+    let ui = new UI(latlng, zoon);
+
+    elementos.forEach(function(elem) {
+
+        let latitud = Number(elem.latitud);
+        let longitud = Number(elem.longitud);
+
+        let latlng = { lat: latitud, lng: longitud };
+
+
+        ui.mostrarPin(latlng);
+
+    })
+
+
+    MAPA.classList.add('mostrarMap');
+    cerrarMapa.classList.add('mostrarBtn');
+}
+
+//Ocultar Mapa
+function ocultarMapa() {
+    MAPA.classList.remove('mostrarMap');
+    cerrarMapa.classList.remove('mostrarBtn');
+}
+
 //Mostrar información del parkímetro seleccionado en ordenadores
 function mostrarInformacion(e) {
     let objMet;
@@ -392,11 +456,6 @@ function mostrarInfoMet(objMet) {
 
     })
 }
-//Función para abrir la app de mapas dependiendo del dispositivo
-function comoLlegarMap(latlng) {
-
-}
-
 
 //Comprobar si el parkímetro ha sido añadido
 function comprobarAlias(el) {

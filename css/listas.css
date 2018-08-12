@@ -100,7 +100,8 @@ body mainTwo {
     overflow: hidden;
 }
 
-.lista {
+.lista,
+#map {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -112,6 +113,60 @@ body mainTwo {
     background: rgb(247, 241, 241);
     text-align: left;
     transition-duration: .3s;
+}
+
+#map {
+    display: none;
+}
+
+#map.mostrarMap {
+    display: block;
+    z-index: 100;
+    animation: .4s mostrar 1;
+}
+
+.cerrarMapa {
+    position: absolute;
+    display: none;
+    width: 24px;
+    height: 24px;
+    z-index: 400;
+    font-size: 1.1em;
+    top: 12px;
+    left: 82%;
+    background-color: #a3afb8;
+}
+
+.cerrarMapa>button {
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.cerrarMapa.mostrarBtn {
+    display: block;
+    animation: 1.8s mostrarCruz 1;
+}
+
+@keyframes mostrar {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mostrarCruz {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .lista:nth-of-type(1) header {
@@ -145,7 +200,7 @@ body mainTwo {
     height: 60px;
     font-size: .8em;
     padding-top: 15px;
-    margin-left: 15px;
+    margin-rigth: 15px;
     text-align: center;
 }
 
@@ -211,8 +266,11 @@ body mainTwo {
 }
 
 .lista .content .backface {
-    display: none;
     background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
+}
+
+.backface.mostrarMapa {
+    z-index: 100;
 }
 
 .lista .content .frontface {
@@ -281,6 +339,15 @@ body mainTwo {
     height: 45px;
     width: 90%;
     margin-left: 5%;
+}
+
+.btnMostrarPines {
+    position: absolute;
+    bottom: 41vh;
+    height: 45px;
+    width: 90%;
+    margin-left: 5%;
+    z-index: 200;
 }
 
 .btnMaps {
@@ -422,5 +489,11 @@ article .cancel {
     header,
     .plantillas {
         max-width: 480px;
+    }
+    footer .btn {
+        width: 95%;
+    }
+    footer {
+        z-index: 400;
     }
 }
