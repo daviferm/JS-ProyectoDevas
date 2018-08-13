@@ -133,16 +133,16 @@ body mainTwo {
     width: 20px;
     height: 20px;
     z-index: 400;
-    font-size: 1.1em;
+    font-size: 1em;
     top: 12px;
     left: 80%;
-    background-color: #f4ddab;
 }
 
 .cerrarMapa>button {
     margin: 0px;
-    padding: 4px 5px;
-    border-radius: 4px;
+    padding: 5px 6px;
+    border-radius: 2px;
+    background-color: #f7f4f1;
     cursor: pointer;
     outline: none;
 }
