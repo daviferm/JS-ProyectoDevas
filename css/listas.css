@@ -140,6 +140,8 @@ body mainTwo {
 }
 
 .cerrarMapa>button {
+    margin: 0px;
+    padding: 4px 5px;
     border-radius: 4px;
     cursor: pointer;
     outline: none;
