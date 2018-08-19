@@ -348,8 +348,9 @@ function mostrarPines(e) {
 
         let latlng = { lat: latitud, lng: longitud };
 
+        let alias = elem.alias.substr(7);
+        ui.mostrarPin(latlng, undefined, alias);
 
-        ui.mostrarPin(latlng);
 
     })
 
@@ -401,10 +402,7 @@ function mostrarInformacion(e) {
     }
 }
 
-//Muestra un mensaje de confirmación para borrar un li
-function confirmarBorrado(met, lista) {
 
-}
 
 //Funcion para mostrar la información del parkímetro seleccionado
 function mostrarInfoMet(objMet) {

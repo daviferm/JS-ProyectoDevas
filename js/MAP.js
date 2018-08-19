@@ -33,14 +33,16 @@ class UI {
         // }
     }
 
-    mostrarPin(latlng, img) {
+    mostrarPin(latlng, img, alias) {
         let marcador = new google.maps.Marker({
             position: latlng,
             map: this.mapa,
             animation: google.maps.Animation.DROP,
             icon: img,
+            label: alias,
             title: 'Parkímetro'
         });
+
     }
 
 }
