@@ -3,7 +3,7 @@ const $plantillas = document.querySelectorAll('.flechaUp');
 const cajaMet = document.querySelector('.inputMet');
 const MAPA_BOTON = document.getElementById('botonMapa');
 const $editarName = document.querySelectorAll('.edit');
-const MOSTRAR_MAP = document.querySelectorAll('.posicionBtn');
+const MOSTRAR_MAP = document.querySelectorAll('.mostrarPines');
 const MAPA = document.getElementById('map');
 const cerrarMapa = document.querySelector('.cerrarMapa');
 
@@ -288,7 +288,6 @@ function anadirInfo(barrio, met) {
 //Añadir li a la plantilla
 function crearLi(plantilla, parkimetro) {
 
-    // <input id="checkBox" type="checkbox">
     let html = `
       <label  id="alias">${parkimetro.alias}</label>
       <ion-icon id="borrar" name="trash"></ion-icon>

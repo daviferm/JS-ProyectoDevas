@@ -204,7 +204,7 @@ body mainTwo {
     height: 60px;
     font-size: .8em;
     padding-top: 15px;
-    margin-rigth: 15px;
+    margin-right: 15px;
     text-align: center;
 }
 
@@ -256,7 +256,7 @@ body mainTwo {
 .lista .content {
     position: relative;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .lista .content .backface,
@@ -264,7 +264,8 @@ body mainTwo {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: 100%;
+    height: 80%;
+    overflow: auto;
     background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
     animation: .8s visibilidad 1;
 }
@@ -326,7 +327,7 @@ body mainTwo {
 
 .btnInfo {
     position: absolute;
-    bottom: 34vh;
+    bottom: 18vh;
     width: 90%;
     height: 40px;
     margin-left: 5%;
@@ -339,7 +340,7 @@ body mainTwo {
 
 .divBtnMap {
     position: absolute;
-    bottom: 41vh;
+    bottom: 25vh;
     height: 45px;
     width: 90%;
     margin-left: 5%;
@@ -421,6 +422,31 @@ body mainTwo {
     margin-left: 20%;
 }
 
+.mostrarPines {
+    position: fixed;
+    top: 85%;
+    left: 10px;
+    padding: 0px;
+    display: inline-block;
+    width: 90px;
+    height: 50px;
+    background: rgb(69, 124, 206);
+    border-top-right-radius: 15% 50%;
+    border-bottom-right-radius: 15% 50%;
+    border-bottom-left-radius: 15% 50%;
+    border-top-left-radius: 15% 50%;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    opacity: .5;
+}
+
+.mostrarPines p {
+    margin: 0px;
+}
+
+
+/*
 article {
     position: absolute;
     display: none;
@@ -455,6 +481,8 @@ article>div {
     }
 }
 
+
+
 article>p {
     display: block;
 }
@@ -487,7 +515,7 @@ article .btn {
 article .cancel {
     width: 100px;
     background-color: rgb(204, 102, 117);
-}
+}*/
 
 @media screen and (min-width: 480px) {
     header,
