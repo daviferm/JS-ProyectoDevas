@@ -174,8 +174,13 @@ function activarPlantilla(el) {
     flecha.classList.add('rotacion');
 
     if (fichaActivada !== undefined) {
-        console.log("Tarjeta: " + targetaId);
+
         document.getElementById(targetaId).children[2].classList.remove('btnFooter');
+
+        for (let i = 0; i < MOSTRAR_MAP.length; i++) {
+            MOSTRAR_MAP[i].classList.remove('btnPines');
+        }
+
         mostrarFichas(flecha);
         fichaActivada = undefined;
         targetaId = undefined;
@@ -196,10 +201,15 @@ function activarPlantilla(el) {
         }
         // zIndex(el);
         fichaActivada = true;
-        document.getElementById(targetaId).children[2].classList.add('btnFooter');
+        document.getElementById(targetaId).children[2].classList.remove('btnFooter');
+
+        for (let i = 0; i < MOSTRAR_MAP.length; i++) {
+            MOSTRAR_MAP[i].classList.add('btnPines');
+        }
     }
 
-
+    console.log('Ficha', fichaActivada);
+    console.log();
 
 }
 /*

@@ -425,7 +425,7 @@ body mainTwo {
 .mostrarPines {
     position: fixed;
     top: 85%;
-    left: 10px;
+    left: -110%;
     padding: 0px;
     display: inline-block;
     width: 90px;
@@ -439,6 +439,11 @@ body mainTwo {
     cursor: pointer;
     color: white;
     opacity: .5;
+    transition-duration: .8s;
+}
+
+.mostrarPines.btnPines {
+    left: 10px;
 }
 
 .mostrarPines p {
