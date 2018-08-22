@@ -3,7 +3,7 @@ const $plantillas = document.querySelectorAll('.flechaUp');
 const cajaMet = document.querySelector('.inputMet');
 const MAPA_BOTON = document.getElementById('botonMapa');
 const $editarName = document.querySelectorAll('.edit');
-const MOSTRAR_MAP = document.querySelectorAll('.mostrarPines');
+const MOSTRAR_MAP = document.querySelector('.mostrarPines');
 const MAPA = document.getElementById('map');
 const cerrarMapa = document.querySelector('.cerrarMapa');
 
@@ -16,9 +16,8 @@ document.addEventListener('DOMContentLoaded', actualizarContador);
 
 document.querySelector('#formulario').addEventListener('submit', añadirMet);
 
-for (let i = 0; i < MOSTRAR_MAP.length; i++) {
-    MOSTRAR_MAP[i].addEventListener('click', mostrarPines);
-}
+MOSTRAR_MAP.addEventListener('click', mostrarPines);
+
 
 cerrarMapa.addEventListener('click', ocultarMapa);
 //Ciclo para activar las plantillas
@@ -175,11 +174,8 @@ function activarPlantilla(el) {
 
     if (fichaActivada !== undefined) {
 
-        document.getElementById(targetaId).children[2].classList.remove('btnFooter');
 
-        for (let i = 0; i < MOSTRAR_MAP.length; i++) {
-            MOSTRAR_MAP[i].classList.remove('btnPines');
-        }
+        MOSTRAR_MAP.classList.remove('btnPines');
 
         mostrarFichas(flecha);
         fichaActivada = undefined;
@@ -189,7 +185,6 @@ function activarPlantilla(el) {
         targetaId = elemento.id;
         elemento.style.marginTop = '0px';
 
-        // console.log(elemento.children[2]);
         let atributo;
         let margin = 650;
         for (let i = 0; i < $plantillas.length; i++) {
@@ -199,13 +194,9 @@ function activarPlantilla(el) {
                 margin += 2;
             }
         }
-        // zIndex(el);
         fichaActivada = true;
-        document.getElementById(targetaId).children[2].classList.remove('btnFooter');
 
-        for (let i = 0; i < MOSTRAR_MAP.length; i++) {
-            MOSTRAR_MAP[i].classList.add('btnPines');
-        }
+        MOSTRAR_MAP.classList.add('btnPines');
     }
 
     console.log('Ficha', fichaActivada);

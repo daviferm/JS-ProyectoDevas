@@ -430,7 +430,7 @@ body mainTwo {
     display: inline-block;
     width: 90px;
     height: 50px;
-    background: rgb(69, 124, 206);
+    background: rgba(69, 124, 206, .8);
     border-top-right-radius: 15% 50%;
     border-bottom-right-radius: 15% 50%;
     border-bottom-left-radius: 15% 50%;
@@ -438,7 +438,7 @@ body mainTwo {
     outline: none;
     cursor: pointer;
     color: white;
-    opacity: .5;
+    z-index: 500;
     transition-duration: .8s;
 }
 
