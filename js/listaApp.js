@@ -354,9 +354,32 @@ function mostrarPines(e) {
 
     })
 
-
     MAPA.classList.add('mostrarMap');
     cerrarMapa.classList.add('mostrarBtn');
+
+    //Mostrar mi posición GPS
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            position = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            let latLng = {
+                lat: position.lat,
+                lng: position.lng
+            }
+            let miPosicion = ui.mostrarPosicion(latLng);
+            if (!miPosicion) {
+
+            }
+
+        });
+
+    } else {
+        throw error = new Error('Necesitas habilitar GPS!');
+    }
+
+
 }
 
 //Ocultar Mapa

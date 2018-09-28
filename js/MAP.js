@@ -8,16 +8,19 @@ class UI {
     }
     comoLlegar(latlng, zoon) {
 
-        if ((navigator.platform.indexOf("iPhone") != -1) ||
-            (navigator.platform.indexOf("iPod") != -1) ||
-            (navigator.platform.indexOf("iPad") != -1)) {
+        window.open("https://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
+
+        // if ((navigator.platform.indexOf("iPhone") != -1) ||
+        //     (navigator.platform.indexOf("iPod") != -1) ||
+        //     (navigator.platform.indexOf("iPad") != -1)) {
 
 
-            window.open("maps://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
-        } else {
+        //     window.open("maps://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
+        // } else {
 
-            window.open("https://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
-        }
+        // }
+
+
         /*La siguiente instrucción pregunta si damos permiso para acceder a nuestra
 		posición GPS, y si es así accede a nuestras coordenadar.*/
 
@@ -44,5 +47,22 @@ class UI {
         });
 
     }
+    mostrarPosicion(latLng) {
+
+        let marker = new google.maps.Marker({
+            position: latLng,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 10, //tamaño
+                strokeColor: '#f00', //color del borde
+                strokeWeight: 5, //grosor del borde
+                fillColor: '#00f', //color de relleno
+                fillOpacity: 1 // opacidad del relleno
+            },
+            map: this.mapa
+        })
+
+    }
+
 
 }
