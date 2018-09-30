@@ -35,6 +35,17 @@ body .main {
     animation: .4s mostrar 1;
 }
 
+.main .cajaInfo .infoDesmontada {
+    background: rgba(91, 4, 4, 0.5);
+    color: #FFFFFF;
+    animation: .4s mostrar 1;
+}
+
+.main .cajaInfo .estado {
+    font-size: 1.5em;
+    text-align: center;
+}
+
 @keyframes mostrar {
     0% {
         opacity: 0;

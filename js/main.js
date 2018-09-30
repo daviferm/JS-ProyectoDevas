@@ -1,10 +1,10 @@
-let MET = document.querySelector("input");
-const cajaMet = document.querySelector('.inputMet');
-const INFO = document.querySelector(".info");
-const MAPA_BOTON = document.getElementById('botonMapa');
-const selectBarrio = document.getElementById('barrio');
+let MET = document.querySelector("input"),
+    cajaMet = document.querySelector('.inputMet'),
+    INFO = document.querySelector(".info"),
+    MAPA_BOTON = document.getElementById('botonMapa'),
+    selectBarrio = document.getElementById('barrio'),
+    $miPosicion = document.getElementById('posicionBtn');
 
-const $miPosicion = document.getElementById('posicionBtn');
 $miPosicion.addEventListener('click', navegacion);
 
 
@@ -48,30 +48,42 @@ function obtenetDatos(e) {
 
 //Función para mostrar la información del parkímetro
 function mostrarInfo(barrioSeleccionado, met) {
-    for (let i = 0; i < baseDatos.length; i++) {
-        if (baseDatos[i].alias.startsWith(barrioSeleccionado, 3) && baseDatos[i].alias.endsWith(met)) {
-            console.log(baseDatos[i]);
+    for (let i = 0; i < baseDatosMets.length; i++) {
+        if (baseDatosMets[i].alias.startsWith(barrioSeleccionado, 3) && baseDatosMets[i].alias.endsWith(met)) {
+            console.log(baseDatosMets[i]);
 
             document.querySelector('footer').classList.add('btnFooter');
 
-            let mostrar = baseDatos[i];
+            let mostrar = baseDatosMets[i];
             html = `<p>NÚMERO: ${mostrar.alias}</p>
 			<p>BARRIO: ${mostrar.barrio}</p>
 			<p>DIRECCIÓN: <span class="span">${mostrar.direccion}</span></p>
 			<p>FABRICANTE: ${mostrar.fabricante}</p>
 			<p>TARIFA: ${mostrar.tarifa}</p>
 			`;
-            botonMap = `<button type="button" class="mostrarMapa">Mapa</button>`
+            // botonMap = `<button type="button" class="mostrarMapa">Mapa</button>`;
+
             INFO.className = 'info';
+
+            if (baseDatosMets[i].estado === 'desmontada') {
+                html = `<p>NÚMERO: ${mostrar.alias}</p>
+                    <p>BARRIO: ${mostrar.barrio}</p>
+                    <p>DIRECCIÓN: <span class="span">${mostrar.direccion}</span></p>
+                    <p class="estado">ESTADO: ${mostrar.estado.toUpperCase()}</p>
+                    `;
+                INFO.classList.add('infoDesmontada');
+            } else {
+                INFO.style.background = 'rgba(0, 0, 0, .5)';
+            }
             INFO.innerHTML = html;
             INFO.style.display = 'block';
             document.querySelector('#mapa').style.top = '15px';
             lat = Number(mostrar.latitud);
             lng = Number(mostrar.longitud);
             let img;
-            if (baseDatos[i].alias.startsWith(1, 5)) {
+            if (baseDatosMets[i].alias.startsWith(1, 5)) {
                 img = 'https://daviferm.github.io/ProyectoDevas/img/parkare.png';
-            } else if (baseDatos[i].alias.startsWith(2, 5)) {
+            } else if (baseDatosMets[i].alias.startsWith(2, 5)) {
                 img = 'https://daviferm.github.io/ProyectoDevas/img/wispark.png';
             } else {
                 img = 'https://daviferm.github.io/ProyectoDevas/img/parkeon.png';
