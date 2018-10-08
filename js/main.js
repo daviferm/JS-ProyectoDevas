@@ -47,7 +47,15 @@ function obtenetDatos(e) {
 }
 
 //Función para mostrar la información del parkímetro
-function mostrarInfo(barrioSeleccionado, met) {
+async function mostrarInfo(barrioSeleccionado, met) {
+
+    let data = await fetch('../data/data.json')
+
+    const content = await data.json();
+
+    let baseDatosMets = content.parkimetros;
+
+
     for (let i = 0; i < baseDatosMets.length; i++) {
         if (baseDatosMets[i].alias.startsWith(barrioSeleccionado, 3) && baseDatosMets[i].alias.endsWith(met)) {
             console.log(baseDatosMets[i]);
@@ -133,3 +141,17 @@ LINK.addEventListener('click', cambiarPantalla);
 function cambiarPantalla() {
     window.location.href = 'links/listas.html';
 }
+
+function getDAta() {
+    fetch('../data/data.json')
+        .then(function(res) {
+            return res.json();
+        })
+        .then(function(respuesta) {
+            console.log(respuesta);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+}
+// getDAta();

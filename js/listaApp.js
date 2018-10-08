@@ -301,21 +301,6 @@ function crearLi(plantilla, parkimetro) {
     //Actualizar contador de li
     actualizarContador();
     li.addEventListener('click', mostrarInformacion);
-
-
-    // Pressure.set('#alias', {
-    //     change: function(force, event) {
-    //         const frontface = document.getElementById(targetaId).children[1].children[0];
-    //         const backface = document.getElementById(targetaId).children[1].children[1];
-    //         if (force > 0.9) {
-    //             mostrarInfoMet(parkimetro);
-    //         } else {
-    //             backface.style.display = 'none';
-    //             frontface.style.display = 'block';
-    //         }
-    //     },
-    // }, { only: 'touch' });
-
 }
 
 //Mostrar mapa con los parkímetros seleccionados
