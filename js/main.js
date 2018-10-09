@@ -143,17 +143,3 @@ LINK.addEventListener('click', cambiarPantalla);
 function cambiarPantalla() {
     window.location.href = 'links/listas.html';
 }
-
-function getDAta() {
-    fetch('../data/data.json')
-        .then(function(res) {
-            return res.json();
-        })
-        .then(function(respuesta) {
-            console.log(respuesta);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
-}
-// getDAta();

@@ -247,7 +247,15 @@ function añadirMet(e) {
 }
 
 //Añadir parkímetro a la lista seleccionada
-function anadirInfo(barrio, met) {
+async function anadirInfo(barrio, met) {
+
+    let data = await fetch('../data/data.json')
+        .then(async function(res) {
+            let respuesta = await res.json();
+            return respuesta;
+        })
+
+    let baseDatos = data.parkimetros;
 
     if (targetaId !== undefined) {
 
