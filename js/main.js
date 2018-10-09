@@ -47,13 +47,15 @@ function obtenetDatos(e) {
 }
 
 //Función para mostrar la información del parkímetro
-function mostrarInfo(barrioSeleccionado, met) {
+async function mostrarInfo(barrioSeleccionado, met) {
 
-    // let data = await fetch('../data/data.json')
+    let data = await fetch('../data/data.json')
+        .then(async function(res) {
+            let respuesta = await res.json();
+            return respuesta;
+        })
 
-    // const content = await data.json();
-
-    // let baseDatosMets = content.parkimetros;
+    let baseDatosMets = data.parkimetros;
 
 
     for (let i = 0; i < baseDatosMets.length; i++) {
