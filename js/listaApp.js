@@ -382,7 +382,15 @@ function ocultarMapa() {
 }
 
 //Mostrar información del parkímetro seleccionado en ordenadores
-function mostrarInformacion(e) {
+async function mostrarInformacion(e) {
+    let data = await fetch('../data/data.json')
+        .then(async function(res) {
+            let respuesta = await res.json();
+            return respuesta;
+        })
+
+    let baseDatos = data.parkimetros;
+
     let objMet;
     if (e.target.parentElement.parentElement.id == 'alias' || e.target.id == 'alias') {
         const alias = e.target.innerHTML;
@@ -451,16 +459,18 @@ function mostrarInfoMet(objMet) {
 
     btnMapa.addEventListener('click', function() {
 
-        if ((navigator.platform.indexOf("iPhone") != -1) ||
-            (navigator.platform.indexOf("iPod") != -1) ||
-            (navigator.platform.indexOf("iPad") != -1)) {
+        window.open("https://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
+
+        // if ((navigator.platform.indexOf("iPhone") != -1) ||
+        //     (navigator.platform.indexOf("iPod") != -1) ||
+        //     (navigator.platform.indexOf("iPad") != -1)) {
 
 
-            window.open("maps://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
-        } else {
+        //     window.open("maps://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
+        // } else {
 
-            window.open("https://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
-        }
+        //     window.open("https://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
+        // }
 
     })
     btnInfo.addEventListener('click', function() {
