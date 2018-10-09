@@ -49,7 +49,7 @@ function obtenetDatos(e) {
 //Función para mostrar la información del parkímetro
 async function mostrarInfo(barrioSeleccionado, met) {
 
-    let data = await fetch('../data/data.json')
+    let data = await fetch('/ProyectoDevas/data/data.json')
         .then(async function(res) {
             let respuesta = await res.json();
             return respuesta;
