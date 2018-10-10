@@ -140,10 +140,14 @@ body.ocultar {
     transform: scale(.95);
 }
 
+.cajaFlecha {
+    z-index: 500;
+}
+
 .flecha {
     display: flex;
     position: absolute;
-    z-index: 400;
+    z-index: 2000;
     top: 50px;
     left: 90%;
     width: 35px;

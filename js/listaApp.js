@@ -312,7 +312,16 @@ function crearLi(plantilla, parkimetro) {
 }
 
 //Mostrar mapa con los parkímetros seleccionados
-function mostrarPines(e) {
+async function mostrarPines(e) {
+
+    let data = await fetch('../data/data.json')
+        .then(async function(res) {
+            let respuesta = await res.json();
+            return respuesta;
+        })
+
+    let baseDatos = data.parkimetros;
+
     let elem = document.getElementById(targetaId).children[1].children[0].children;
     let elementos = [];
 
