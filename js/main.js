@@ -1,7 +1,7 @@
 let MET = document.querySelector("input"),
     cajaMet = document.querySelector('.inputMet'),
     INFO = document.querySelector(".info"),
-    MAPA_BOTON = document.getElementById('botonMapa'),
+    // MAPA_BOTON = document.getElementById('botonMapa'),
     selectBarrio = document.getElementById('barrio'),
     $miPosicion = document.getElementById('posicionBtn');
 
@@ -69,11 +69,9 @@ async function mostrarInfo(barrioSeleccionado, met) {
 			<p>BARRIO: ${mostrar.barrio}</p>
 			<p>DIRECCIÓN: <span class="span">${mostrar.direccion}</span></p>
 			<p>FABRICANTE: ${mostrar.fabricante}</p>
-			<p>TARIFA: ${mostrar.tarifa}</p>
 			`;
-            // botonMap = `<button type="button" class="mostrarMapa">Mapa</button>`;
+            INFO.style.display = 'none';
 
-            INFO.className = 'info';
 
             if (baseDatosMets[i].estado === 'desmontada') {
                 html = `<p>NÚMERO: ${mostrar.alias}</p>
@@ -86,8 +84,8 @@ async function mostrarInfo(barrioSeleccionado, met) {
                 INFO.style.background = 'rgba(0, 0, 0, .5)';
             }
             INFO.innerHTML = html;
-            INFO.style.display = 'block';
-            document.querySelector('#mapa').style.top = '15px';
+            // INFO.style.display = 'block';
+            // document.querySelector('#mapa').style.top = '15px';
             lat = Number(mostrar.latitud);
             lng = Number(mostrar.longitud);
             let img;
@@ -106,12 +104,11 @@ async function mostrarInfo(barrioSeleccionado, met) {
         } else {
 
             document.querySelector('footer').classList.remove('btnFooter');
-
-            document.querySelector('#mapa').style.top = '20px';
+            console.log('No encontrado');
             INFO.style.display = 'block';
             INFO.classList.add('noEncontrado');
             html = `<h3>El número de Barrio</br>
-			o Parkímetro es incorrecto...</h3>`;
+            o Parkímetro es incorrecto...</h3>`;
             INFO.innerHTML = html;
         }
     }

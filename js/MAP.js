@@ -3,6 +3,10 @@ class UI {
         //Inicializar y obtenet la propiedad de mapa
         this.mapa = new google.maps.Map(document.getElementById('map'), {
             center: latlng,
+            zoomControl: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            fullscreenControl: false,
             zoom: zoon
         });
     }
@@ -63,6 +67,4 @@ class UI {
         })
 
     }
-
-
 }
