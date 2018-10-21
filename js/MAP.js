@@ -12,8 +12,11 @@ class UI {
         });
     }
     comoLlegar(latlng, zoon) {
+        // https://www.google.es/maps/dir/mi+ubicacion/' + Latitud + ',' + Longitud +  '/
 
-        window.open("https://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
+
+        // window.open("https://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
+        window.open("https://www.google.es/maps/dir/mi+ubicacion/" + latlng.lat + "," + latlng.lng + "/");
 
         // if ((navigator.platform.indexOf("iPhone") != -1) ||
         //     (navigator.platform.indexOf("iPod") != -1) ||
