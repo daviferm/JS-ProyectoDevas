@@ -16,7 +16,7 @@ body .mainList {
 
 .flechaRigth {
     display: flex;
-    z-index: 100;
+    z-index: 2000;
     position: absolute;
     top: 42px;
     right: -2px;
@@ -112,6 +112,7 @@ body mainTwo {
     top: 0px;
     background: rgb(247, 241, 241);
     text-align: left;
+    z-index: 100;
     transition-duration: .3s;
 }
 
@@ -130,21 +131,23 @@ body mainTwo {
     display: none;
     margin: 0px;
     padding: 0px;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     z-index: 400;
     font-size: 1em;
-    top: 12px;
-    left: 80%;
+    top: 100px;
+    left: 85%;
 }
 
 .cerrarMapa>button {
     margin: 0px;
     padding: 5px 6px;
     border-radius: 2px;
-    background-color: #f7f4f1;
+    background-color: #6c6966;
+    color: white;
     cursor: pointer;
     outline: none;
+    border-radius: 50%;
 }
 
 .cerrarMapa.mostrarBtn {
@@ -410,11 +413,11 @@ body mainTwo {
     margin-left: 15px;
 }
 
-.liMet>ion-icon {
-    width: 20%;
-    padding-top: .2em;
-    margin-right: -20px;
-    font-size: 1.6em;
+.liMet>#borrar {
+    width: 35%;
+    padding-top: .1em;
+    margin-right: -55px;
+    font-size: 1.8em;
     color: rgb(8, 8, 7);
 }
 

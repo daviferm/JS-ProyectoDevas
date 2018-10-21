@@ -8,6 +8,7 @@ class UI {
             scaleControl: false,
             fullscreenControl: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
+            gestureHandling: "greedy",
             zoom: zoon
         });
     }

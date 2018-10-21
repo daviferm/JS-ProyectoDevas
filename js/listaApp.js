@@ -340,7 +340,7 @@ async function mostrarPines(e) {
     let longitud = Number(elementos[0].longitud);
 
     let latlng = { lat: latitud, lng: longitud };
-    let zoon = 15;
+    let zoon = 14;
     let ui = new UI(latlng, zoon);
 
     elementos.forEach(function(elem) {
