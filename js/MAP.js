@@ -8,7 +8,7 @@ class UI {
             scaleControl: false,
             fullscreenControl: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            gestureHandling: "greedy",
+            gestureHandling: "greedy", //mover mapa con un dedo
             zoom: zoon
         });
     }
