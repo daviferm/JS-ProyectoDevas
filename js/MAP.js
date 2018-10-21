@@ -7,6 +7,7 @@ class UI {
             mapTypeControl: false,
             scaleControl: false,
             fullscreenControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
             zoom: zoon
         });
     }
