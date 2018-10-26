@@ -3,10 +3,15 @@ let MET = document.querySelector("input"),
     INFO = document.querySelector(".info"),
     // MAPA_BOTON = document.getElementById('botonMapa'),
     selectBarrio = document.getElementById('barrio'),
-    $miPosicion = document.getElementById('posicionBtn');
+    $miPosicion = document.getElementById('posicionBtn'),
+    $mostrarInfo = document.getElementById('mostrarInfo'),
+    $iconCerrarInfo = document.getElementById('cerrar-info'),
+    $iconInfo = document.getElementById('icon-info');
 
 $miPosicion.addEventListener('click', navegacion);
 
+$mostrarInfo.addEventListener('click', mostrarInformacion);
+let = cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 
@@ -70,7 +75,8 @@ async function mostrarInfo(barrioSeleccionado, met) {
 			<p>DIRECCIÓN: <span class="span">${mostrar.direccion}</span></p>
 			<p>FABRICANTE: ${mostrar.fabricante}</p>
 			`;
-            INFO.style.display = 'none';
+            // INFO.style.display = 'none';
+            $mostrarInfo.style.display = 'block';
 
 
             if (baseDatosMets[i].estado === 'desmontada') {
@@ -84,7 +90,7 @@ async function mostrarInfo(barrioSeleccionado, met) {
                 INFO.style.background = 'rgba(0, 0, 0, .5)';
             }
             INFO.innerHTML = html;
-            // INFO.style.display = 'block';
+            INFO.style.display = 'none';
             // document.querySelector('#mapa').style.top = '15px';
             lat = Number(mostrar.latitud);
             lng = Number(mostrar.longitud);
@@ -113,6 +119,26 @@ async function mostrarInfo(barrioSeleccionado, met) {
         }
     }
 }
+
+//mostrar y ocultar información del parquímetro
+function mostrarInformacion() {
+    if (cajaInfo) {
+
+        INFO.style.display = 'block';
+        $iconInfo.style.display = 'none';
+        $iconCerrarInfo.style.display = 'block';
+        cajaInfo = !cajaInfo;
+
+    } else {
+
+        INFO.style.display = 'none';
+        $iconInfo.style.display = 'block';
+        $iconCerrarInfo.style.display = 'none';
+        cajaInfo = !cajaInfo;
+
+    }
+}
+
 
 function navegacion() {
 

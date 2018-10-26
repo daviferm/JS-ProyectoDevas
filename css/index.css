@@ -13,10 +13,10 @@ body .main {
 
 .main .cajaInfo {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
     z-index: 100;
-    position: relative;
-    top: -110%;
+    position: absolute;
+    top: 95px;
     transition-duration: .4s;
 }
 
@@ -27,11 +27,11 @@ body .main {
 
 .main .cajaInfo .info {
     position: relative;
-    top: -110%;
+    top: 0%;
     display: none;
     width: 80%;
     margin-left: 10%;
-    padding: .6em 0;
+    padding: .5em;
     background: rgba(0, 0, 0, .5);
     border-radius: 10pt;
     font-size: 1em;
@@ -60,7 +60,7 @@ body .main {
 }
 
 .info>p {
-    margin: 5px 30px;
+    margin: 15px 30px;
 }
 
 .info.noEncontrado {
@@ -78,6 +78,32 @@ body .main {
     margin-right: 10px;
     border-radius: 8px;
     overflow: hidden;
+}
+
+#mapa #mostrarInfo {
+    position: absolute;
+    display: none;
+    top: 110px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #cdc7c7;
+    z-index: 2000;
+    cursor: pointer;
+    animation: .4s mostrar 1;
+}
+
+#mapa #mostrarInfo ion-icon {
+    font-size: 1.4em;
+    margin: 4px;
+    color: black;
+}
+
+#mapa #mostrarInfo #cerrar-info {
+    display: none;
+    font-size: 1.2em;
+    margin: 6px;
 }
 
 #map {
