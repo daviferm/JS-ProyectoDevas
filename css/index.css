@@ -13,7 +13,7 @@ body .main {
 
 .main .cajaInfo {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
     z-index: 100;
     position: absolute;
     top: 95px;
@@ -29,7 +29,7 @@ body .main {
     position: relative;
     top: 0%;
     display: none;
-    width: 80%;
+    width: 98%;
     margin-left: 10%;
     padding: .5em;
     background: rgba(0, 0, 0, .5);
@@ -88,22 +88,23 @@ body .main {
     width: 30px;
     height: 30px;
     border-radius: 5px;
-    background: #cdc7c7;
+    /* background: #cdc7c7; */
     z-index: 2000;
     cursor: pointer;
     animation: .4s mostrar 1;
 }
 
 #mapa #mostrarInfo ion-icon {
-    font-size: 1.4em;
+    font-size: 1.8em;
     margin: 4px;
     color: black;
 }
 
 #mapa #mostrarInfo #cerrar-info {
     display: none;
-    font-size: 1.2em;
+    font-size: 1.4em;
     margin: 6px;
+    color: white;
 }
 
 #map {
