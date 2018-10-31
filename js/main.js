@@ -11,7 +11,7 @@ let MET = document.querySelector("input"),
 $miPosicion.addEventListener('click', navegacion);
 
 $mostrarInfo.addEventListener('click', mostrarInformacion);
-let = cajaInfo = true;
+let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 
