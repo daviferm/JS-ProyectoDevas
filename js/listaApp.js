@@ -8,6 +8,9 @@ const MAPA = document.getElementById('map');
 const cerrarMapa = document.querySelector('.cerrarMapa');
 
 
+window.scrollBy(0, 100);
+
+
 //EventListenner
 document.addEventListener('DOMContentLoaded', mostrarFichas);
 document.addEventListener('DOMContentLoaded', localStorageload);
