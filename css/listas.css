@@ -267,7 +267,8 @@ body mainTwo {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: 88%;
+    height: 100%;
+    padding-bottom: 11em;
     overflow: auto;
     background: linear-gradient(to top, #dcbb73, rgb(247, 241, 241));
     animation: .8s visibilidad 1;
