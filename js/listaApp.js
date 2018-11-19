@@ -451,7 +451,6 @@ function mostrarInfoMet(objMet) {
       <p>BARRIO: ${objMet.barrio}</p>
       <p>DIRECCIÓN: ${objMet.direccion}</p>
       <p>FABRICANTE: ${objMet.fabricante}</p>
-      <p>TARIFA: ${objMet.tarifa}</p>
     </section>
     <div class="divBtnMap">
       <button type="button" class="btnMaps"><ion-icon name="car"></ion-icon><p>Como llegar</p></button>
