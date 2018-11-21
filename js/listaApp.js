@@ -354,7 +354,21 @@ async function mostrarPines(e) {
         let latlng = { lat: latitud, lng: longitud };
 
         let alias = elem.alias.substr(7);
-        ui.mostrarPin(latlng, undefined, alias);
+
+        let contenido = `
+            <div class="infoPark">
+                <div class="parrafo">
+                    <p>Número: <span>${elem.alias}</span></p>
+                </div>
+                <div class="buttons">
+                    <div class="divBtnMap">
+                        <button id="btnMap" type="button"></button>
+                    </div>
+                </div>
+            </div>
+        `
+
+        ui.mostrarPin(latlng, undefined, alias, contenido);
 
 
     })

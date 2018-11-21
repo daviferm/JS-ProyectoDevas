@@ -11,6 +11,8 @@ class UI {
             gestureHandling: "greedy", //mover mapa con un dedo
             zoom: zoon
         });
+        this.infoWindowActivo;
+
     }
     comoLlegar(latlng, zoon) {
         // https://www.google.es/maps/dir/mi+ubicacion/' + Latitud + ',' + Longitud +  '/
@@ -45,8 +47,8 @@ class UI {
         // }
     }
 
-    mostrarPin(latlng, img, alias) {
-        let marcador = new google.maps.Marker({
+    mostrarPin(latlng, img, alias, contenido) {
+        let marker = new google.maps.Marker({
             position: latlng,
             map: this.mapa,
             animation: google.maps.Animation.DROP,
@@ -54,6 +56,36 @@ class UI {
             label: alias,
             title: 'Parkímetro'
         });
+        let infowindow = new google.maps.InfoWindow({
+            content: contenido
+        });
+
+        // Mostrar InfoWindow al hace click
+        marker.addListener('click', (e) => {
+            // Cerrar infoWindowActivo
+            if (this.infoWindowActivo) {
+                this.infoWindowActivo.close();
+            }
+            // Mostrarlo
+            infowindow.open(this.mapa, marker);
+
+            // Añadir un evento click al boton del infoWindow para marcarlo con hecho
+            setTimeout(function() {
+
+                let btnMap = document.getElementById('btnMap');
+
+                btnMap.addEventListener('click', () => {
+
+                    window.open("https://www.google.es/maps/dir/mi+ubicacion/" + latlng.lat + "," + latlng.lng + "/");
+
+                })
+            }, 1000);
+
+            //Asignar activo
+            this.infoWindowActivo = infowindow;
+
+        })
+
 
     }
     mostrarPosicion(latLng) {
