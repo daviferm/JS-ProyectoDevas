@@ -8,8 +8,11 @@ const MAPA = document.getElementById('map');
 const cerrarMapa = document.querySelector('.cerrarMapa');
 
 
-window.scrollBy(0, 100);
 
+//Poner el scroll al principio de la página al recargar
+document.addEventListener('DOMContentLoaded', function() {
+    window.scrollBy(0, 0);
+});
 
 //EventListenner
 document.addEventListener('DOMContentLoaded', mostrarFichas);
@@ -317,6 +320,8 @@ function crearLi(plantilla, parkimetro) {
 //Mostrar mapa con los parkímetros seleccionados
 async function mostrarPines(e) {
 
+    window.scrollBy(0, 0);
+
     let data = await fetch('../data/data.json')
         .then(async function(res) {
             let respuesta = await res.json();
@@ -398,6 +403,7 @@ async function mostrarPines(e) {
         throw error = new Error('Necesitas habilitar GPS!');
     }
 
+    window.scrollBy(0, 0);
 
 }
 
