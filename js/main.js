@@ -106,6 +106,30 @@ async function mostrarInfo(barrioSeleccionado, met) {
             latlng = { lat: lat, lng: lng };
             ui = new UI(latlng, zoon);
             ui.mostrarPin(latlng, img);
+
+            //Mostrar mi posición GPS
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    position = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    let latLng = {
+                        lat: position.lat,
+                        lng: position.lng
+                    }
+                    let miPosicion = ui.mostrarPosicion(latLng);
+                    if (!miPosicion) {
+
+                    }
+
+                });
+
+            } else {
+                throw error = new Error('Necesitas habilitar GPS!');
+            }
+
+            window.scrollBy(0, 0);
             break;
         } else {
 

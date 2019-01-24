@@ -94,9 +94,9 @@ class UI {
             position: latLng,
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: 10, //tamaño
+                scale: 8, //tamaño
                 strokeColor: '#f00', //color del borde
-                strokeWeight: 5, //grosor del borde
+                strokeWeight: 3, //grosor del borde
                 fillColor: '#00f', //color de relleno
                 fillOpacity: 1 // opacidad del relleno
             },
