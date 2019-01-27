@@ -383,21 +383,38 @@ async function mostrarPines(e) {
 
     //Mostrar mi posición GPS
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            position = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            let latLng = {
-                lat: position.lat,
-                lng: position.lng
-            }
-            let miPosicion = ui.mostrarPosicion(latLng);
-            if (!miPosicion) {
+        let intermalo = setInterval(() => {
 
-            }
+            navigator.geolocation.getCurrentPosition((position) => {
+                position = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                let latLng = {
+                    lat: position.lat,
+                    lng: position.lng
+                }
+                let miPosicion = ui.mostrarPosicion(latLng);
 
-        });
+                setTimeout(() => {
+                    miPosicion.setMap(null);
+                }, 1950);
+            });
+        }, 2000);
+
+        // navigator.geolocation.getCurrentPosition((position) => {
+        //     position = {
+        //         lat: position.coords.latitude,
+        //         lng: position.coords.longitude
+        //     };
+        //     let latLng = {
+        //         lat: position.lat,
+        //         lng: position.lng
+        //     }
+        //     let miPosicion = ui.mostrarPosicion(latLng);
+
+
+        // });
 
     } else {
         throw error = new Error('Necesitas habilitar GPS!');

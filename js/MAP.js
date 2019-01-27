@@ -103,5 +103,7 @@ class UI {
             map: this.mapa
         })
 
+        return marker;
+
     }
 }
