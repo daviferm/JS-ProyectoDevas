@@ -398,9 +398,9 @@ async function mostrarPines(e) {
 
                 setTimeout(() => {
                     miPosicion.setMap(null);
-                }, 1950);
+                }, 99.5);
             });
-        }, 2000);
+        }, 100);
 
         // navigator.geolocation.getCurrentPosition((position) => {
         //     position = {
