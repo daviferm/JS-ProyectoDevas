@@ -11,7 +11,7 @@ const cerrarMapa = document.querySelector('.cerrarMapa');
 
 //Poner el scroll al principio de la página al recargar
 document.addEventListener('DOMContentLoaded', function() {
-    window.scrollBy(0, 0);
+    window.scrollBy(0, -window.innerHeight);
 });
 
 //EventListenner
