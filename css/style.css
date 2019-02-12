@@ -1,10 +1,10 @@
 body {
-    background: #e96443;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #904e95, #e96443);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #904e95, #e96443);
     font-family: 'Roboto', sans-serif;
+    background: #2381AA;
 }
 
 .header>header {
@@ -14,6 +14,8 @@ body {
     background-color: #2381AA;
     font-size: .8em;
     z-index: 200;
+    width: 100%;
+    max-width: 530px;
 }
 
 body.ocultar {
