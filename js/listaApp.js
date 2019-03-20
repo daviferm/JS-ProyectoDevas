@@ -495,7 +495,9 @@ function mostrarInfoMet(objMet) {
 
         // window.open("https://maps.google.com/maps?daddr=" + objMet.latitud + "," + objMet.longitud + "&amp;ll=");
 
-        window.open("https://www.google.es/maps/dir/mi+ubicacion/" + objMet.latitud + "," + objMet.longitud + "/");
+        // window.open("https://www.google.es/maps/dir/mi+ubicacion/" + objMet.latitud + "," + objMet.longitud + "/");
+        window.open(`https://maps.google.com/?q=${objMet.latitud},${objMet.longitud}`);
+
 
         // if ((navigator.platform.indexOf("iPhone") != -1) ||
         //     (navigator.platform.indexOf("iPod") != -1) ||
