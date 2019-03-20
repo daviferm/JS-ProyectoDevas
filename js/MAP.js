@@ -20,17 +20,16 @@ class UI {
 
         // window.open("https://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
         // window.open("https://www.google.es/maps/dir/mi+ubicacion/" + latlng.lat + "," + latlng.lng + "/");
-        window.open(`https://maps.google.com/?q=${latlng.lat},${latlng.lng}`);
 
-        // if ((navigator.platform.indexOf("iPhone") != -1) ||
-        //     (navigator.platform.indexOf("iPod") != -1) ||
-        //     (navigator.platform.indexOf("iPad") != -1)) {
+        if ((navigator.platform.indexOf("iPhone") != -1) ||
+            (navigator.platform.indexOf("iPod") != -1) ||
+            (navigator.platform.indexOf("iPad") != -1)) {
 
+            window.open("maps://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
+        } else {
+            window.open(`https://maps.google.com/?q=${latlng.lat},${latlng.lng}`);
 
-        //     window.open("maps://maps.google.com/maps?daddr=" + latlng.lat + "," + latlng.lng + "&amp;ll=");
-        // } else {
-
-        // }
+        }
 
 
         /*La siguiente instrucción pregunta si damos permiso para acceder a nuestra
