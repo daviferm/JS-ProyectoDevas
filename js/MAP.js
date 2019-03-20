@@ -76,7 +76,8 @@ class UI {
 
                 btnMap.addEventListener('click', () => {
 
-                    window.open("https://www.google.es/maps/dir/mi+ubicacion/" + latlng.lat + "," + latlng.lng + "/");
+                    // window.open("https://www.google.es/maps/dir/mi+ubicacion/" + latlng.lat + "," + latlng.lng + "/");
+                    window.open(`https://maps.google.com/?q=${latlng.lat},${latlng.lng}`);
 
                 })
             }, 1000);

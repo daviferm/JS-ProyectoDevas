@@ -406,7 +406,7 @@ async function mostrarPines(e) {
         throw error = new Error('Necesitas habilitar GPS!');
     }
 
-    window.scrollBy(0, 0);
+    window.scrollBy(0, -window.innerHeight);
 
 }
 
