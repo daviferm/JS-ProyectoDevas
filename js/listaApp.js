@@ -273,6 +273,15 @@ async function anadirInfo(barrio, met) {
         if (elem !== -1) {
 
             const parkimetro = baseDatos[elem];
+
+            if (parkimetro.estado == 'desmontada') {
+
+                return swal({
+                    type: 'info',
+                    title: 'Oops...',
+                    text: 'El parkímetro ha sido desmontado!',
+                })
+            }
             const boleano = comprobarAlias(parkimetro);
 
             if (boleano !== true) {
