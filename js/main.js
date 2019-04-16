@@ -31,7 +31,6 @@ function obtenetDatos(e) {
 
         const barrioSeleccionado = selectBarrio.options[selectBarrio.selectedIndex].value;
         let met = MET.value;
-        let botonMap;
         let html;
 
         if (met.length < 3 || met.length > 4) {
@@ -134,7 +133,6 @@ async function mostrarInfo(barrioSeleccionado, met) {
         } else {
 
             document.querySelector('footer').classList.remove('btnFooter');
-            console.log('No encontrado');
             INFO.style.display = 'block';
             INFO.classList.add('noEncontrado');
             html = `<h3>El número de Barrio</br>
