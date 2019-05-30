@@ -15,7 +15,6 @@ let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
 
-
 var latlng = { lat: 40.4169473, lng: -3.7035285 };
 let zoon = 10;
 let ui = new UI(latlng, zoon);
@@ -53,13 +52,21 @@ function obtenetDatos(e) {
 //Función para mostrar la información del parkímetro
 async function mostrarInfo(barrioSeleccionado, met) {
 
-    let data = await fetch('./data/data.json')
+    let data = await fetch('https://app-utedevas.firebaseio.com/parkimetros.json')
         .then(async function(res) {
             let respuesta = await res.json();
+            console.log(respuesta);
             return respuesta;
-        })
+        });
 
-    let baseDatosMets = data.parkimetros;
+
+    // let data = await fetch('./data/data.json')
+    //     .then(async function(res) {
+    //         let respuesta = await res.json();
+    //         return respuesta;
+    //     })
+
+    let baseDatosMets = data;
 
 
     for (let i = 0; i < baseDatosMets.length; i++) {

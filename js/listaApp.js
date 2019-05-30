@@ -331,13 +331,20 @@ async function mostrarPines(e) {
 
     window.scrollBy(0, -window.innerHeight);
 
-    let data = await fetch('../data/data.json')
+    let data = await fetch('https://app-utedevas.firebaseio.com/parkimetros.json')
         .then(async function(res) {
             let respuesta = await res.json();
+            console.log(respuesta);
             return respuesta;
-        })
+        });
 
-    let baseDatos = data.parkimetros;
+    // let data = await fetch('../data/data.json')
+    //     .then(async function(res) {
+    //         let respuesta = await res.json();
+    //         return respuesta;
+    //     })
+
+    let baseDatos = data;
 
     let elem = document.getElementById(targetaId).children[1].children[0].children;
     let elementos = [];
