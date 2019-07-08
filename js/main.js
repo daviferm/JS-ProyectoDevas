@@ -59,7 +59,6 @@ async function mostrarInfo(barrioSeleccionado, met) {
             return respuesta;
         });
 
-
     // let data = await fetch('./data/data.json')
     //     .then(async function(res) {
     //         let respuesta = await res.json();
