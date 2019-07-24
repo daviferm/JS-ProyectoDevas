@@ -14,21 +14,13 @@ $miPosicion.addEventListener('click', navegacion);
 
 $mostrarInfo.addEventListener('click', mostrarInformacion);
 
-$closeFooter.addEventListener('click', cerrarFooter);
+$closeFooter.addEventListener('click', function() {
+    $nuevaWeb.classList.add('esconder');
+});
 
 let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
-
-
-function cerrarFooter() {
-    console.log('Cerrar footer...');
-
-    $nuevaWeb.classList.add('esconder');
-    // document.addEventListener('animationend', function() {
-    //     $nuevaWeb.classList.remove('esconder');
-    // })
-}
 
 var latlng = { lat: 40.4169473, lng: -3.7035285 };
 let zoon = 10;

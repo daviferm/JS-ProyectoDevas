@@ -278,13 +278,13 @@ footer .posicionBtn i {
         transform: translate(0);
     }
     100% {
-        transform: translateY(-200px);
+        transform: translateY(-180px);
     }
 }
 
 @keyframes esconder {
     from {
-        transform: translate(-200px);
+        transform: translate(-180px);
     }
     to {
         transform: translateY(10px);
@@ -335,6 +335,7 @@ footer .posicionBtn i {
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .a_demo_two::before {
