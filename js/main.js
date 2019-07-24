@@ -6,14 +6,29 @@ let MET = document.querySelector("input"),
     $miPosicion = document.getElementById('posicionBtn'),
     $mostrarInfo = document.getElementById('mostrarInfo'),
     $iconCerrarInfo = document.getElementById('cerrar-info'),
-    $iconInfo = document.getElementById('icon-info');
+    $iconInfo = document.getElementById('icon-info'),
+    $nuevaWeb = document.querySelector('.nuevaweb'),
+    $closeFooter = document.getElementById('close');
 
 $miPosicion.addEventListener('click', navegacion);
 
 $mostrarInfo.addEventListener('click', mostrarInformacion);
+
+$closeFooter.addEventListener('click', cerrarFooter);
+
 let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
+
+
+function cerrarFooter() {
+    console.log('Cerrar footer...');
+
+    $nuevaWeb.classList.add('esconder');
+    // document.addEventListener('animationend', function() {
+    //     $nuevaWeb.classList.remove('esconder');
+    // })
+}
 
 var latlng = { lat: 40.4169473, lng: -3.7035285 };
 let zoon = 10;
