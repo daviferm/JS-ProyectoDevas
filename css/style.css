@@ -278,13 +278,13 @@ footer .posicionBtn i {
         transform: translate(0);
     }
     100% {
-        transform: translateY(-180px);
+        transform: translateY(-160px);
     }
 }
 
 @keyframes esconder {
     from {
-        transform: translate(-180px);
+        transform: translate(-160px);
     }
     to {
         transform: translateY(10px);

@@ -63,6 +63,7 @@ async function mostrarInfo(barrioSeleccionado, met) {
         .then(async function(res) {
             let respuesta = await res.json();
             console.log(respuesta);
+            $nuevaWeb.classList.add('esconder');
             return respuesta;
         });
 
