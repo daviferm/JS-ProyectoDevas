@@ -6,11 +6,18 @@ let MET = document.querySelector("input"),
     $miPosicion = document.getElementById('posicionBtn'),
     $mostrarInfo = document.getElementById('mostrarInfo'),
     $iconCerrarInfo = document.getElementById('cerrar-info'),
-    $iconInfo = document.getElementById('icon-info');
+    $iconInfo = document.getElementById('icon-info'),
+    $nuevaWeb = document.querySelector('.nuevaweb'),
+    $closeFooter = document.getElementById('close');
 
 $miPosicion.addEventListener('click', navegacion);
 
 $mostrarInfo.addEventListener('click', mostrarInformacion);
+
+$closeFooter.addEventListener('click', function() {
+    $nuevaWeb.classList.add('esconder');
+});
+
 let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
@@ -56,9 +63,9 @@ async function mostrarInfo(barrioSeleccionado, met) {
         .then(async function(res) {
             let respuesta = await res.json();
             console.log(respuesta);
+            $nuevaWeb.classList.add('esconder');
             return respuesta;
         });
-
 
     // let data = await fetch('./data/data.json')
     //     .then(async function(res) {
