@@ -68,8 +68,9 @@ async function mostrarInfo(barrioSeleccionado, met) {
     //         $nuevaWeb.classList.add('esconder');
     //         return respuesta;
     //     });
+    const dataLocal = './data/data.json';
 
-    let data = await fetch('./data/data.json')
+    let data = await fetch(dataLocal)
         .then(async function(res) {
             let respuesta = await res.json();
             $nuevaWeb.classList.add('esconder');
@@ -77,6 +78,7 @@ async function mostrarInfo(barrioSeleccionado, met) {
         })
 
     let baseDatosMets = data;
+    // console.log(baseDatosMets);
 
 
     for (let i = 0; i < baseDatosMets.length; i++) {
