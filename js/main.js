@@ -207,7 +207,7 @@ for (let i = 0; i < listaBarrios.length; i++) {
 
 const LINK = document.querySelector('.flecha');
 
-LINK.addEventListener('click', cambiarPantalla);
+// LINK.addEventListener('click', cambiarPantalla);
 
 
 // Función para cambiar de app
