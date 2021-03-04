@@ -37,9 +37,6 @@ function obtenetDatos(e) {
 
         const barrioSeleccionado = selectBarrio.options[selectBarrio.selectedIndex].value;
         let met = MET.value;
-        let html;
-        console.log(barrioSeleccionado);
-        console.log(met);
 
         if (met.length < 3 || met.length > 4) {
             MET.style.borderColor = 'red';
@@ -61,10 +58,9 @@ function obtenetDatos(e) {
 //Función para mostrar la información del parkímetro
 async function mostrarInfo(barrioSeleccionado, met) {
 
-    // let data = await fetch('https://app-utedevas.firebaseio.com/parkimetros.json')
+    // let dataF = await fetch('https://app-utedevas.firebaseio.com/parkimetros.json')
     //     .then(async function(res) {
     //         let respuesta = await res.json();
-    //         console.log(respuesta);
     //         $nuevaWeb.classList.add('esconder');
     //         return respuesta;
     //     });
@@ -78,12 +74,10 @@ async function mostrarInfo(barrioSeleccionado, met) {
         })
 
     let baseDatosMets = data;
-    // console.log(baseDatosMets);
 
 
     for (let i = 0; i < baseDatosMets.length; i++) {
         if (baseDatosMets[i].alias.startsWith(barrioSeleccionado, 3) && baseDatosMets[i].alias.endsWith(met)) {
-            console.log(baseDatosMets[i]);
 
             document.querySelector('footer').classList.add('btnFooter');
 
