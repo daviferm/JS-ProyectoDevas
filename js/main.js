@@ -18,6 +18,8 @@ $closeFooter.addEventListener('click', function() {
     $nuevaWeb.classList.add('esconder');
 });
 
+// firebaseDataBase();
+
 let cajaInfo = true;
 
 document.querySelector('#formulario').addEventListener('submit', obtenetDatos);
@@ -55,23 +57,42 @@ function obtenetDatos(e) {
     }, 150);
 }
 
+async function firebaseDataBase() {
+
+    const url = 'https://firestore-devas.firebaseio.com/parkimetros.json'
+    let dataF = await fetch(url)
+        .then(async function(res) {
+            let respuesta = await res.json();
+            // $nuevaWeb.classList.add('esconder');
+            console.log(respuesta);
+            return respuesta;
+        });
+}
+
 //Función para mostrar la información del parkímetro
 async function mostrarInfo(barrioSeleccionado, met) {
 
-    // let dataF = await fetch('https://app-utedevas.firebaseio.com/parkimetros.json')
+
+    // const dataLocal = './data/data.json';
+
+    // let data = await fetch(dataLocal)
     //     .then(async function(res) {
     //         let respuesta = await res.json();
     //         $nuevaWeb.classList.add('esconder');
-    //         return respuesta;
-    //     });
-    const dataLocal = './data/data.json';
-
-    let data = await fetch(dataLocal)
+    //         return respuesta.parkimetros;
+    //     })
+    // const url = 'https://firestore-devas.firebaseio.com/parkimetros.json';
+    const urlDB = 'https://app-devas.firebaseio.com/parkimetros.json';
+    let data = await fetch(urlDB)
         .then(async function(res) {
+            let DB = [];
             let respuesta = await res.json();
+            for (const clave in respuesta) {
+                DB.push(respuesta[clave]);
+            }
             $nuevaWeb.classList.add('esconder');
-            return respuesta.parkimetros;
-        })
+            return DB;
+        });
 
     let baseDatosMets = data;
 
